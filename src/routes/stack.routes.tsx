@@ -17,7 +17,7 @@ export function StackRoutes() {
       <Screen
         name="screenB"
         options={{
-          title: "Tela A",
+          title: "Tela B",
           headerTitleAlign: "center",
           headerStyle: {
             backgroundColor: "navy",

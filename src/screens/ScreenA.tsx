@@ -1,12 +1,13 @@
-import React from "react";
+import React, { useState } from "react";
 import { useNavigation } from "@react-navigation/native";
-import { Button, View } from "react-native";
+import { Button, TextInput, View } from "react-native";
 
 export function ScreenA() {
   const navigation = useNavigation();
+  const [text, setText] = useState("");
 
   function openScreen() {
-    navigation.navigate("screenB", { name: "Conteudo veio da tela A" });
+    navigation.navigate("screenB", { name: text});
   }
 
   return (
@@ -18,6 +19,18 @@ export function ScreenA() {
         alignItems: "center",
       }}
     >
+      <TextInput
+        value={text}
+        onChangeText={setText}
+        style={{
+          marginBottom: 12,
+          padding: 5,
+          backgroundColor: "white",
+          color: "#323130",
+          borderRadius: 3,
+        }}
+        placeholder="Insira um texto aqui..."
+      />
       <Button title="Ir para tela B" onPress={openScreen} />
     </View>
   );
