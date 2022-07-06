@@ -6,11 +6,18 @@ export function ScreenA() {
   const navigation = useNavigation();
 
   function openScreen() {
-    navigation.navigate("screenB");
+    navigation.navigate("screenB", { name: "Conteudo veio da tela A" });
   }
 
   return (
-    <View style={{ flex: 1, backgroundColor: "red", justifyContent:"center" }}>
+    <View
+      style={{
+        flex: 1,
+        backgroundColor: "red",
+        justifyContent: "center",
+        alignItems: "center",
+      }}
+    >
       <Button title="Ir para tela B" onPress={openScreen} />
     </View>
   );
