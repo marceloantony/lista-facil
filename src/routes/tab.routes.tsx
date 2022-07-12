@@ -1,6 +1,6 @@
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 import { MaterialIcons } from "@expo/vector-icons";
-import { ScreenA } from "../screens/ScreenA";
+import { Home } from "../screens/Home";
 import { ScreenB } from "../screens/ScreenB";
 
 const { Screen, Navigator } = createBottomTabNavigator();
@@ -14,14 +14,14 @@ export function TabRoutes() {
       }}
     >
       <Screen
-        name="screenA"
+        name="Home"
         options={{
           tabBarLabel: "Home",
           tabBarIcon: ({ color, size }) => (
             <MaterialIcons name="home" color={color} size={size} />
           ),
         }}
-        component={ScreenA}
+        component={Home}
       />
       <Screen
         name="screenB"

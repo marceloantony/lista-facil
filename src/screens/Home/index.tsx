@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { useNavigation } from "@react-navigation/native";
 import { Button, TextInput, View } from "react-native";
 
-export function ScreenA() {
+export function Home() {
   const navigation = useNavigation();
   const [text, setText] = useState("");
 
