@@ -1,8 +1,7 @@
 import React, { useState } from "react";
 import { useNavigation } from "@react-navigation/native";
-import { Button } from "react-native";
-import { Container } from "./style";
-import { Logo } from "../../components";
+import { Box, Container, GroupButtons } from "./styles";
+import { ButtonMenu, Dashboard, Logo, RecentLists } from "../../components";
 
 export function Home() {
   const navigation = useNavigation();
@@ -13,8 +12,15 @@ export function Home() {
 
   return (
     <Container>
-      <Logo />
-      <Button title="Ir para tela B" onPress={openScreen} />
+      <Box>
+        <Logo />
+        <Dashboard />
+        <GroupButtons>
+          <ButtonMenu title="Criar uma Lista" icon="add" onPress={openScreen} />
+          <ButtonMenu title="Items em Casa" icon="home" />
+        </GroupButtons>
+      </Box>
+      <RecentLists />
     </Container>
   );
 }

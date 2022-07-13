@@ -1,4 +1,5 @@
 import { Routes } from "./src/routes";
+import { StatusBar } from "expo-status-bar";
 
 import { ThemeProvider } from "styled-components/native";
 import light from "./src/themes/light";
@@ -25,6 +26,7 @@ export default function App() {
 
   return (
     <ThemeProvider theme={light}>
+      <StatusBar style="light" />
       <Routes />
     </ThemeProvider>
   );

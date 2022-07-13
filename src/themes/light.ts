@@ -2,12 +2,12 @@ export default {
   COLORS: {
     BACKGROUND: "#FAFAFA",
     TEXT: "#1A1A1A",
-    TEXT_LIGHT: "#FAFAFA",
+    TEXT_ALT: "#FAFAFA",
 
 
-    PRIMARY: "#F04E23",
-    SECONDARY: "#8C2C16",
-    TERTIARY: "#f58220",
+    PRIMARY: "#E84D0C",
+    SECONDARY: "#9C3104",
+    TERTIARY: "#FF6726",
 
     WHITE: "#FFFFFF",
     BLACK: "#000000",
