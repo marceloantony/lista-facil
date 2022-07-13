@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { useNavigation } from "@react-navigation/native";
-import { Button, TextInput, View } from "react-native";
-import { styles } from "./style";
+import { Button } from "react-native";
+import { Container } from "./style";
 import { Logo } from "../../components";
 
 export function Home() {
@@ -12,9 +12,9 @@ export function Home() {
   }
 
   return (
-    <View style={styles.container}>
+    <Container>
       <Logo />
       <Button title="Ir para tela B" onPress={openScreen} />
-    </View>
+    </Container>
   );
 }

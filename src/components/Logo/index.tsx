@@ -1,12 +1,10 @@
-import React from 'react';
-import { Text, View } from 'react-native';
-
-import { styles } from './styles';
+import React from "react";
+import { Container, Title } from "./styles";
 
 export function Logo() {
   return (
-    <View style={styles.container}>
-        <Text style={styles.logo}>☺ Lista Facil</Text>
-    </View>
+    <Container>
+      <Title>Lista Fácil</Title>
+    </Container>
   );
 }
