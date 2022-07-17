@@ -1,4 +1,4 @@
-import { RFPercentage } from "react-native-responsive-fontsize";
+import { RFPercentage, RFValue } from "react-native-responsive-fontsize";
 import styled from "styled-components/native";
 
 export type ButtonMenuProps = {
@@ -8,20 +8,19 @@ export type ButtonMenuProps = {
 };
 
 export const Container = styled.TouchableOpacity`
-  width: ${RFPercentage(15)}px;
-  padding: 8px;
   align-items: center;
+  margin: 24px 0;
 `;
 
-export const Box = styled.View`
-  padding: ${RFPercentage(1)}px;
+export const Circle = styled.View`
+  padding: 5px;
   background-color: ${({ theme }) => theme.COLORS.BACKGROUND};
   border-radius: 100px;
 `;
 
-export const IconBox = styled.View`
-  width: ${RFPercentage(6)}px;
-  height: ${RFPercentage(6)}px;
+export const ButtonIcon = styled.View`
+  width: ${RFPercentage(5)}px;
+  height: ${RFPercentage(5)}px;
   align-items: center;
   justify-content: center;
 `;
@@ -29,7 +28,7 @@ export const IconBox = styled.View`
 export const Title = styled.Text`
   color: ${({ theme }) => theme.COLORS.TEXT_ALT};
   font-family: ${({ theme }) => theme.FONTS.BOLD};
-  font-size: ${RFPercentage(2.4)}px;
+  font-size: ${RFValue(14)}px;
   text-align: center;
-  margin-top: 12px;
+  margin-top: 8px;
 `;

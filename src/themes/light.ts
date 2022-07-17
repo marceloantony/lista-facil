@@ -12,7 +12,7 @@ export default {
 
     WHITE: "#FFFFFF",
     BLACK: "#000000",
-    GRAY: "#E1DFDD",
+    GRAY: "#c8c6c4",
   },
 
   FONTS: {

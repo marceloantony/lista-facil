@@ -11,22 +11,26 @@ import {
   LinkText,
   Title,
 } from "./styles";
+import { useNavigation } from "@react-navigation/native";
 
 export function RecentLists() {
+  const navigation = useNavigation();
+
   return (
     <Container>
       <Header>
         <Title>Compras Recentes</Title>
-        <TouchableOpacity>
+        <TouchableOpacity onPress={() => navigation.navigate("AllLists")}>
           <LinkContent>
-            <LinkText>Ver todos</LinkText>
-            <Icon name="arrowright" size={RFPercentage(2.3)} />
+            <LinkText>Ver todas</LinkText>
+            <Icon name="arrowright" size={RFPercentage(2)} />
           </LinkContent>
         </TouchableOpacity>
       </Header>
-      <CardList/>
-      <CardList/>
-      <CardList/>
+      <CardList />
+      <CardList />
+      <CardList />
+      <CardList />
     </Container>
   );
 }

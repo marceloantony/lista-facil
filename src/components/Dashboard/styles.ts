@@ -1,8 +1,8 @@
 import styled from "styled-components/native";
 
-export const Container = styled.View`
+export const Container = styled.Text`
+padding: 15px;
   height: 200px;
-  margin: 15px 0;
   background-color: ${({ theme }) => theme.COLORS.BACKGROUND};
   border-radius: 9px;
 `;

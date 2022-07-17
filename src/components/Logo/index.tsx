@@ -1,10 +1,10 @@
 import React from "react";
-import { Container, Icon, Title } from "./styles";
+import { Container, IconLogo, Title } from "./styles";
 
 export function Logo() {
   return (
     <Container>
-      <Icon
+      <IconLogo
         source={require("../../assets/marketCar.png")}
         resizeMode="contain"
       />

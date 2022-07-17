@@ -1,20 +1,20 @@
 import React from "react";
 import { RFPercentage } from "react-native-responsive-fontsize";
 import Icon from "react-native-vector-icons/Octicons";
-import { Box, ButtonMenuProps, Container, IconBox, Title } from "./styles";
+import { Circle, ButtonMenuProps, Container, ButtonIcon, Title } from "./styles";
 
 export function ButtonMenu({ title, icon, onPress }: ButtonMenuProps) {
   return (
     <Container onPress={onPress}>
-      <Box>
-        <IconBox>
+      <Circle>
+        <ButtonIcon>
           {icon === "add" ? (
-            <Icon name="plus" size={RFPercentage(4.5)} />
+            <Icon name="plus" size={RFPercentage(3.3)} />
           ) : (
-            <Icon name="home" size={RFPercentage(4.5)} />
+            <Icon name="home" size={RFPercentage(3.3)} />
           )}
-        </IconBox>
-      </Box>
+        </ButtonIcon>
+      </Circle>
       <Title>{title}</Title>
     </Container>
   );

@@ -1,20 +1,20 @@
-import { RFPercentage } from "react-native-responsive-fontsize";
+import { RFPercentage, RFValue } from "react-native-responsive-fontsize";
 import styled from "styled-components/native";
 
 export const Container = styled.View`
   flex-direction: row;
   align-items: center;
-  padding: 15px 0;
+  margin-bottom: 24px;
 `;
 
-export const Icon = styled.Image`
-  width: ${RFPercentage(10)}px;
+export const IconLogo = styled.Image`
+  width: ${RFPercentage(7)}px;
   height: 100%;
-  margin-right: 8px;
+  margin-right: ${RFPercentage(2)}px;
 `;
 
 export const Title = styled.Text`
   color: ${({ theme }) => theme.COLORS.TEXT_ALT};
   font-family: ${({ theme }) => theme.FONTS.LIGHT};
-  font-size: ${RFPercentage(5)}px;
+  font-size: ${RFValue(22)}px;
 `;
