@@ -2,9 +2,9 @@ import React from "react";
 import { useNavigation } from "@react-navigation/native";
 import { CardList } from "../../components";
 import { Container, AllList } from "./styles";
-import { CardListDataProps } from "../../@types/CardList";
+import { ListDataProps } from "../../@types/data-props";
 
-const dataExemple: CardListDataProps[] = [
+const dataExemple: ListDataProps[] = [
   { id: "1", title: "Carrefour", date: new Date(), value: 202.25 },
   { id: "2", title: "Carrefour", date: new Date(), value: 202.25 },
   { id: "3", title: "Carrefour", date: new Date(), value: 202.25 },
@@ -17,7 +17,7 @@ const dataExemple: CardListDataProps[] = [
   { id: "10", title: "Carrefour", date: new Date(), value: 202.25 },
 ];
 
-export function AllLists(data: CardListDataProps) {
+export function AllLists(data: ListDataProps) {
   return (
     <Container>
       <AllList

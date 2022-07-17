@@ -6,9 +6,9 @@ export default {
     TEXT_SECONDARY: "#323130",
 
 
-    PRIMARY: "#E84D0C",
-    SECONDARY: "#9C3104",
-    TERTIARY: "#FF6726",
+    PRIMARY: "#FF7200",
+    SECONDARY: "#E84D0C",
+    TERTIARY: "#F59000",
 
     WHITE: "#FFFFFF",
     BLACK: "#000000",

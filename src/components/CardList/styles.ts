@@ -1,5 +1,6 @@
-import { RFPercentage, RFValue } from "react-native-responsive-fontsize";
 import styled from "styled-components/native";
+import { RFPercentage, RFValue } from "react-native-responsive-fontsize";
+import Icon from "react-native-vector-icons/Feather";
 
 export const Container = styled.TouchableOpacity`
   flex-direction: row;
@@ -39,4 +40,10 @@ export const Diviser = styled.Text`
   width: 85%;
   margin: 0 auto;
   background-color: ${({ theme }) => theme.COLORS.GRAY};
+`;
+
+export const IconCard = styled(Icon).attrs({
+  size: RFPercentage(3.75),
+})`
+  color: ${({ theme }) => theme.COLORS.PRIMARY};
 `;

@@ -8,14 +8,14 @@ import Icon from "react-native-vector-icons/AntDesign";
 import {
   Container,
   Header,
-  LinkContent as LinkContent,
+  LinkContent,
   LinkText,
   Title,
 } from "./styles";
 
-import { CardListDataProps } from "../../@types/CardList";
+import { ListDataProps } from "../../@types/data-props";
 
-const dataExemple: CardListDataProps[] = [
+const dataExemple: ListDataProps[] = [
   { id: "1", title: "Carrefour", date: new Date(), value: 202.25 },
   { id: "2", title: "Pão de Açucar", date: new Date(), value: 602.25 },
   { id: "3", title: "Carrefour", date: new Date(), value: 202.25 },

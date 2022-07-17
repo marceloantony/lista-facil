@@ -4,3 +4,4 @@ export { Dashboard } from "./Dashboard";
 export { ItemList } from "./ItemList";
 export { Logo } from "./Logo";
 export { RecentLists } from "./RecentLists";
+export { ValueList } from "./ValueList";

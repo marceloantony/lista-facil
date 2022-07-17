@@ -1,8 +1,13 @@
 import React from "react";
 import { RFPercentage } from "react-native-responsive-fontsize";
 import Icon from "react-native-vector-icons/Octicons";
-import { ButtonMenuProps } from "../../@types/ButtonMenu";
 import { Circle, Container, ButtonIcon, Title } from "./styles";
+
+export type ButtonMenuProps = {
+  title: string;
+  icon: "add" | "home";
+  onPress?: any;
+};
 
 export function ButtonMenu({ title, icon, onPress }: ButtonMenuProps) {
   return (

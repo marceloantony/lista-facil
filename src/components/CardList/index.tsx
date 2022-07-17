@@ -1,29 +1,33 @@
+import { useNavigation } from "@react-navigation/native";
 import React from "react";
 import { View } from "react-native";
 import { RFPercentage } from "react-native-responsive-fontsize";
-import Icon from "react-native-vector-icons/Feather";
-import { CardListDataProps, CardListProps } from "../../@types/CardList";
+import { ListDataProps } from "../../@types/data-props";
 import {
   Container,
   Date,
   Diviser,
   IconBox,
+  IconCard,
   Title,
   TitleBox,
   Value,
 } from "./styles";
 
+export type CardListProps = {
+  data: ListDataProps;
+};
 
 export function CardList({ data }: CardListProps) {
+  const navigation = useNavigation();
+
   return (
     <>
-      <Container>
+      <Container onPress={() => navigation.navigate("InfoList")}>
         <TitleBox>
           <IconBox>
-            <Icon
+            <IconCard
               name={data.value >= 500 ? "shopping-cart" : "shopping-bag"}
-              size={RFPercentage(3.75)}
-              color="#FF6726"
             />
           </IconBox>
           <View>
