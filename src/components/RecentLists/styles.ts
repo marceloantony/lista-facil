@@ -1,5 +1,7 @@
+import { FlatList, FlatListProps } from "react-native";
 import { RFPercentage, RFValue } from "react-native-responsive-fontsize";
 import styled from "styled-components/native";
+import { CardListDataProps } from "../../@types/CardList";
 
 export const Container = styled.View`
   flex: 1;
@@ -34,5 +36,3 @@ export const LinkText = styled.Text`
   margin-right: ${RFPercentage(0.5)}px;
   margin-top: -3px;
 `;
-
-export const Body = styled.FlatList``;

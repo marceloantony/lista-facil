@@ -2,6 +2,7 @@ import React from "react";
 import { View } from "react-native";
 import { RFPercentage } from "react-native-responsive-fontsize";
 import Icon from "react-native-vector-icons/Feather";
+import { CardListDataProps, CardListProps } from "../../@types/CardList";
 import {
   Container,
   Date,
@@ -12,25 +13,25 @@ import {
   Value,
 } from "./styles";
 
-export function CardList() {
+
+export function CardList({ data }: CardListProps) {
   return (
     <>
       <Container>
         <TitleBox>
           <IconBox>
-            {/* <Icon name="shopping-bag" size={RFPercentage(3.75)} /> */}
             <Icon
-              name="shopping-cart"
+              name={data.value >= 500 ? "shopping-cart" : "shopping-bag"}
               size={RFPercentage(3.75)}
               color="#FF6726"
             />
           </IconBox>
           <View>
-            <Title>Shibata</Title>
-            <Date>16/10/2000</Date>
+            <Title>{data.title}</Title>
+            <Date>{data.date.toLocaleDateString()}</Date>
           </View>
         </TitleBox>
-        <Value>R$202,25</Value>
+        <Value>R${data.value}</Value>
       </Container>
       <Diviser />
     </>

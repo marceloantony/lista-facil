@@ -20,7 +20,7 @@ export function StackRoutes() {
       <Screen
         name="AllLists"
         options={{
-          title: "Todas suas Compras",
+          title: "Todas as Compras",
           headerTitleAlign: "center",
           headerStyle: {
             backgroundColor: light.COLORS.PRIMARY,

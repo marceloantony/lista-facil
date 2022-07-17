@@ -1,12 +1,6 @@
 import { RFPercentage, RFValue } from "react-native-responsive-fontsize";
 import styled from "styled-components/native";
 
-export type ButtonMenuProps = {
-  title: string;
-  icon: "add" | "home";
-  onPress?: any;
-};
-
 export const Container = styled.TouchableOpacity`
   align-items: center;
   margin: 24px 0;
