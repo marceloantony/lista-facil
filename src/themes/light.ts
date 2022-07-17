@@ -3,6 +3,7 @@ export default {
     BACKGROUND: "#FAFAFA",
     TEXT: "#1A1A1A",
     TEXT_ALT: "#FAFAFA",
+    TEXT_SECONDARY: "#323130",
 
 
     PRIMARY: "#E84D0C",
@@ -11,6 +12,7 @@ export default {
 
     WHITE: "#FFFFFF",
     BLACK: "#000000",
+    GRAY: "#E1DFDD",
   },
 
   FONTS: {

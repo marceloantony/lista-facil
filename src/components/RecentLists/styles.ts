@@ -12,11 +12,27 @@ export const Container = styled.View`
 
 export const Header = styled.View`
   flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 12px;
 `;
 
 export const Title = styled.Text`
-  color: ${({ theme }) => theme.COLORS.TEXT};
-  font-size: ${RFPercentage(3.5)}px;
   font-family: ${({ theme }) => theme.FONTS.MEDIUM};
+  font-size: ${RFPercentage(3.5)}px;
   letter-spacing: -0.5px;
 `;
+
+export const LinkContent = styled.View`
+  padding: 5px;
+  flex-direction: row;
+  align-items: center;
+`;
+
+export const LinkText = styled.Text`
+  font-family: ${({ theme }) => theme.FONTS.REGULAR};
+  font-size: ${RFPercentage(2.2)}px;
+  margin-right: ${RFPercentage(0.5)}px;
+`;
+
+export const Body = styled.FlatList``;
