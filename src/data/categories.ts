@@ -1,4 +1,4 @@
-import { CategoriesProps, ItemListDataProps } from "../@types/data-props";
+import { CategoriesProps, ItemListDataProps, ListDataProps } from "../@types/data-props";
 import light from "../themes/light";
 
 export const categories: CategoriesProps[] = [
@@ -123,7 +123,7 @@ export const categories: CategoriesProps[] = [
   },
 ];
 
-export const dataExemple: ItemListDataProps[] = [
+export const itemsExemple: ItemListDataProps[] = [
   {
     id: "1",
     title: "Fosforos",
@@ -230,4 +230,11 @@ export const dataExemple: ItemListDataProps[] = [
     category: "15",
   },
   { id: "16", title: "Vinho", qtd: 1, value: 20, category: "2" },
+];
+
+export const listsExemple: ListDataProps[] = [
+  { id: "1", title: "Carrefour", date: new Date(), value: 202.25 },
+  { id: "2", title: "Pão de Açucar", date: new Date(), value: 602.25 },
+  { id: "3", title: "Carrefour", date: new Date(), value: 202.25 },
+  { id: "4", title: "Assaí", date: new Date(), value: 2020.2 },
 ];

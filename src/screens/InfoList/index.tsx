@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { CategoryList, ValueList } from "../../components";
-import { dataExemple } from "../../data/categories";
+import { itemsExemple } from "../../data/categories";
 import {
   Conteiner,
   TituloLista,
@@ -19,8 +19,8 @@ export function InfoList() {
         <TituloInput onChangeText={setTitle} value={title} />
         <IconMarket name="format-list-text" />
       </TituloLista>
-      <CategoryList items={dataExemple} />
-      <ValueList />
+      <CategoryList items={itemsExemple} />
+      <ValueList items={itemsExemple} />
       <ButtonAddItem>
         <IconButtonAdd name="plus" />
       </ButtonAddItem>

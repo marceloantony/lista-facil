@@ -21,6 +21,18 @@ type CardListProps = {
 export function CardList({ data }: CardListProps) {
   const navigation = useNavigation();
 
+  const option = {
+    year: "numeric",
+    month: "long",
+    weekday: "long",
+    day: "numeric",
+    hour: "numeric",
+    minute: "numeric",
+    second: "numeric",
+    era: "long",
+    timeZoneName: "long",
+  };
+
   return (
     <>
       <Container onPress={() => navigation.navigate("InfoList")}>
@@ -35,7 +47,13 @@ export function CardList({ data }: CardListProps) {
             <Date>{data.date.toLocaleDateString()}</Date>
           </View>
         </TitleBox>
-        <Value>R${data.value}</Value>
+        <Value>
+          R${" "}
+          {data.value.toLocaleString("pt-BR", {
+            minimumFractionDigits: 2,
+            maximumFractionDigits: 2,
+          })}
+        </Value>
       </Container>
       <Diviser />
     </>

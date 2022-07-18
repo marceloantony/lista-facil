@@ -27,3 +27,7 @@ export const TitleCategory = styled.Text<ColorProps>`
   margin-left: ${RFPercentage(3)}px;
   color: ${({ color }) => color};
 `;
+
+export const FooterEmpty = styled.View`
+  margin-top: ${RFPercentage(25)}px;
+`;

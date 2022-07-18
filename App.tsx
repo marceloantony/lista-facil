@@ -11,6 +11,7 @@ import {
   Nunito_500Medium,
   Nunito_700Bold,
 } from "@expo-google-fonts/nunito";
+import { Platform } from "react-native";
 
 export default function App() {
   const [fontsLoaded] = useFonts({
@@ -19,6 +20,13 @@ export default function App() {
     Nunito_500Medium,
     Nunito_700Bold,
   });
+
+  if (Platform.OS === 'android') {
+    require('intl');
+    require('intl/locale-data/jsonp/fr-BE');
+    require('intl/locale-data/jsonp/nl-BE');
+    require('intl/locale-data/jsonp/it-IT');
+  }
 
   if (!fontsLoaded) {
     // implementar loading !!!

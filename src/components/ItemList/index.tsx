@@ -72,7 +72,10 @@ export function ItemList({ data }: ItemListProps) {
             <Quantity>Quantidade: {data.qtd}</Quantity>
           </View>
         </TitleBox>
-        <Value>R${data.value}</Value>
+        <Value>R$ {data.value.toLocaleString("pt-BR", {
+            minimumFractionDigits: 2,
+            maximumFractionDigits: 2,
+          })}</Value>
       </Conteiner>
     </>
   );

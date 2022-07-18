@@ -1,9 +1,9 @@
 import React from "react";
-import { FlatList, ScrollView, View } from "react-native";
+import { ScrollView } from "react-native";
+import { ItemList } from "../ItemList";
+import { Container, FooterEmpty, ItemCategory, TitleCategory } from "./styles";
 import { CategoriesProps, ItemListDataProps } from "../../@types/data-props";
 import { categories } from "../../data/categories";
-import { ItemList } from "../ItemList";
-import { Container, ItemCategory, TitleCategory } from "./styles";
 
 type CategoryListProps = {
   items: ItemListDataProps[];
@@ -25,11 +25,6 @@ export function CategoryList({ items }: CategoryListProps) {
         {itemsByCategory.map((item) => (
           <ItemList data={item} key={item.id} />
         ))}
-        {/* <FlatList
-          data={itemsByCategory}
-          keyExtractor={(item) => item.id}
-          renderItem={({ item }) => <ItemList data={item} />}
-        /> */}
       </ItemCategory>
     );
   };
@@ -38,13 +33,8 @@ export function CategoryList({ items }: CategoryListProps) {
     <Container>
       <ScrollView>
         {categories.map((category) => renderItems(category))}
-        <View style={{marginTop: 250}} />
+        <FooterEmpty />
       </ScrollView>
-      {/* <FlatList
-        data={categories}
-        keyExtractor={(item) => item.id}
-        renderItem={({ item }) => renderItems(item)}
-      /> */}
     </Container>
   );
 }

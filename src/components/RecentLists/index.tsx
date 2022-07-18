@@ -14,13 +14,7 @@ import {
 } from "./styles";
 
 import { ListDataProps } from "../../@types/data-props";
-
-const dataExemple: ListDataProps[] = [
-  { id: "1", title: "Carrefour", date: new Date(), value: 202.25 },
-  { id: "2", title: "Pão de Açucar", date: new Date(), value: 602.25 },
-  { id: "3", title: "Carrefour", date: new Date(), value: 202.25 },
-  { id: "4", title: "Assaí", date: new Date(), value: 2020.25 },
-];
+import { listsExemple } from "../../data/categories";
 
 export function RecentLists() {
   const navigation = useNavigation();
@@ -37,7 +31,7 @@ export function RecentLists() {
         </TouchableOpacity>
       </Header>
       <FlatList
-        data={dataExemple}
+        data={listsExemple}
         keyExtractor={(item) => item.id}
         renderItem={({ item }) => <CardList data={item} />}
       />
