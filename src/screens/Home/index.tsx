@@ -8,7 +8,7 @@ export function Home() {
 
   function openScreen() {
     // navigation.navigate("screenB", { name: "text" });
-    navigation.navigate("InfoList" );
+    navigation.navigate("InfoList");
   }
 
   return (
