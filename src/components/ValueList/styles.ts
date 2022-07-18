@@ -8,6 +8,8 @@ export const Container = styled.View`
   width: 100%;
   background-color: ${({ theme }) => theme.COLORS.PRIMARY_DARK};
   padding: 16px ${RFPercentage(3)}px;
+  position: absolute;
+  bottom: 0;
 `;
 
 export const Value = styled.Text`

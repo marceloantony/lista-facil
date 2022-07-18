@@ -30,20 +30,14 @@ export const Quantity = styled.Text`
   color: ${({ theme }) => theme.COLORS.TEXT_SECONDARY};
 `;
 
-export const Category = styled.Text`
-  font-family: ${({ theme }) => theme.FONTS.REGULAR};
-  font-size: ${RFValue(11)}px;
-  color: ${({ theme }) => theme.COLORS.TEXT_SECONDARY};
-`;
-
 export const Value = styled.Text`
   font-family: ${({ theme }) => theme.FONTS.BOLD};
   font-size: ${RFValue(18)}px;
 `;
 
-export const Diviser = styled.Text`
-  height: 1px;
-  width: 85%;
-  margin: 0 auto;
-  background-color: ${({ theme }) => theme.COLORS.GRAY};
-`;
+// export const Diviser = styled.Text`
+//   height: 1px;
+//   width: 85%;
+//   margin: 0 auto;
+//   background-color: ${({ theme }) => theme.COLORS.GRAY};
+// `;

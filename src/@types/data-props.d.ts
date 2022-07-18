@@ -10,6 +10,14 @@ export type ItemListDataProps = {
     title: string;
     qtd: number;
     value: number;
+    category: string;
     obs?: string;
-    category?: string;
+}
+
+export type CategoriesProps = {
+    id: string;
+    name: string;
+    iconName: string;
+    iconLib: string;
+    color: string;
 }

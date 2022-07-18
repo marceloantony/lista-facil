@@ -28,12 +28,6 @@ export const TituloInput = styled.TextInput`
   background-color: #0000001a;
 `;
 
-// export const IconNameListEdit = styled(Icon).attrs({
-//   size: RFPercentage(3.75),
-// })`
-//   color: ${({ theme }) => theme.COLORS.TEXT_ALT};
-// `;
-
 export const IconMarket = styled(IconInput).attrs({
   size: RFPercentage(3.75),
 })`

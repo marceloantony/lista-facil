@@ -14,7 +14,7 @@ import {
   Value,
 } from "./styles";
 
-export type CardListProps = {
+type CardListProps = {
   data: ListDataProps;
 };
 

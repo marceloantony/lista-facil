@@ -13,14 +13,14 @@ export default {
 
     // Cores das categorias
     BAZUTILI: "#A8A8A8",
-    BAKERY: "F0EDAB",
+    BAKERY: "#F0EDAB",
     CANDIES: "#E8A345",
     CLEANING: "#FFB5EE",
     CONDCONS: "#D63F02",
     COOKIES: "#704211",
     DAIRY: "#E8CA45",
     DRINKS: "#61024A",
-    FRONZEN: "#9BD7FF",
+    FROZEN: "#9BD7FF",
     GROCERY: "#D3D3A3",
     HORTIFRUTI: "#6CA345",
     HYGIENE: "#A4ACD6",
