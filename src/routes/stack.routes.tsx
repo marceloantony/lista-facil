@@ -22,11 +22,15 @@ export function StackRoutes() {
         name="AllLists"
         options={{
           title: "Todas as Compras",
+          headerShadowVisible: false,
           headerTitleAlign: "center",
           headerStyle: {
             backgroundColor: light.COLORS.PRIMARY,
           },
-          headerTintColor: light.COLORS.TEXT_ALT,
+          headerTitleStyle: {
+            fontFamily: light.FONTS.MEDIUM
+          },
+          headerTintColor: light.COLORS.WHITE,
         }}
         component={AllLists}
       />
@@ -35,11 +39,15 @@ export function StackRoutes() {
         name="InfoList"
         options={{
           title: "Lista de Compras",
+          headerShadowVisible: false,
           headerTitleAlign: "center",
           headerStyle: {
             backgroundColor: light.COLORS.PRIMARY,
           },
-          headerTintColor: light.COLORS.TEXT_ALT,
+          headerTitleStyle: {
+            fontFamily: light.FONTS.MEDIUM
+          },
+          headerTintColor: light.COLORS.WHITE,
         }}
         component={InfoList}
       />

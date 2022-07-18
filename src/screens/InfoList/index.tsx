@@ -1,7 +1,15 @@
-import React from "react";
+import React, { useState } from "react";
+import { FlatList, TouchableOpacity } from "react-native";
 import { ItemListDataProps } from "../../@types/data-props";
 import { ItemList, ValueList } from "../../components";
-import { Conteiner, List } from "./styles";
+import {
+  Conteiner,
+  TituloLista,
+  TituloInput,
+  IconMarket,
+  ButtonAddItem,
+  IconButtonAdd,
+} from "./styles";
 
 const dataExemple: ItemListDataProps[] = [
   {
@@ -87,14 +95,22 @@ const dataExemple: ItemListDataProps[] = [
 ];
 
 export function InfoList() {
+  const [title, setTitle] = useState("Shibata");
   return (
     <Conteiner>
-      <List
+      <TituloLista>
+        <TituloInput onChangeText={setTitle} value={title} />
+        <IconMarket name="format-list-text" />
+      </TituloLista>
+      <FlatList
         data={dataExemple}
         keyExtractor={(item) => item.id}
         renderItem={({ item }) => <ItemList data={item} />}
       />
       <ValueList />
+      <ButtonAddItem>
+        <IconButtonAdd name="plus" />
+      </ButtonAddItem>
     </Conteiner>
   );
 }

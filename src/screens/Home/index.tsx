@@ -7,7 +7,8 @@ export function Home() {
   const navigation = useNavigation();
 
   function openScreen() {
-    navigation.navigate("screenB", { name: "text" });
+    // navigation.navigate("screenB", { name: "text" });
+    navigation.navigate("InfoList" );
   }
 
   return (
@@ -17,7 +18,7 @@ export function Home() {
         <Dashboard />
         <GroupButtons>
           <ButtonMenu title="Criar uma Lista" icon="add" onPress={openScreen} />
-          <ButtonMenu title="Items em Casa" icon="home" />
+          <ButtonMenu title="Itens em Casa" icon="home" />
         </GroupButtons>
       </Box>
       <RecentLists />

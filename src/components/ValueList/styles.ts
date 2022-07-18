@@ -6,12 +6,12 @@ export const Container = styled.View`
   align-items: center;
   justify-content: space-between;
   width: 100%;
-  background-color: ${({ theme }) => theme.COLORS.SECONDARY};
+  background-color: ${({ theme }) => theme.COLORS.PRIMARY_DARK};
   padding: 16px ${RFPercentage(3)}px;
 `;
 
 export const Value = styled.Text`
   color: ${({ theme }) => theme.COLORS.TEXT_ALT};
-  font-family: ${({ theme }) => theme.FONTS.LIGHT};
+  font-family: ${({ theme }) => theme.FONTS.MEDIUM};
   font-size: ${RFValue(24)}px;
 `;
