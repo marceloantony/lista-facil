@@ -6,7 +6,10 @@ export const Container = styled.TouchableOpacity`
   flex-direction: row;
   align-items: center;
   justify-content: space-between;
-  margin: 12px ${RFPercentage(2)}px;
+  background-color: ${({ theme }) => theme.COLORS.FOREGROUND_COLOR};
+  border-radius: 10px;
+  margin: 6px ${RFPercentage(2)}px;
+  padding: 8px ${RFPercentage(2)}px;
 `;
 
 export const IconBox = styled.View`

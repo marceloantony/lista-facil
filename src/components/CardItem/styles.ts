@@ -1,26 +1,24 @@
 import { RFPercentage, RFValue } from "react-native-responsive-fontsize";
 import Icon from "react-native-vector-icons/MaterialCommunityIcons";
-import styled, { css } from "styled-components/native";
+import styled, { css, useTheme } from "styled-components/native";
 
 export const Conteiner = styled.View`
   flex-direction: row;
   align-items: center;
   background-color: ${({ theme }) => theme.COLORS.BACKGROUND};
-  /* border: 0.5px solid ${({ theme }) => theme.COLORS.GRAY};
-  border-radius: 6px; */
-  margin: 1px 0;
   overflow: hidden;
 `;
 
 export const LeftBorder = styled.View<{ color: string }>`
-  height: 100%;
-  width: 6px;
+  height: ${RFPercentage(3)}px;
+  width: ${RFPercentage(3)}px;
+  border-radius: 100px;
   background-color: ${({ color }) => color};
-  margin-right: ${RFPercentage(2)}px;
+  margin: 0 ${RFPercentage(2)}px;
 `;
 
 export const TitleBox = styled.View`
-  margin: 8px auto 8px 0;
+  margin: 10px auto 10px 0;
 `;
 
 export const Title = styled.Text`
@@ -37,24 +35,19 @@ export const Quantity = styled.Text`
 export const Value = styled.Text`
   font-family: ${({ theme }) => theme.FONTS.BOLD};
   font-size: ${RFValue(18)}px;
-  margin-right: ${RFPercentage(2)}px;
+  margin-right: ${RFPercentage(3)}px;
 `;
 
-export const BoxIconSides = styled.View`
+export const BoxIconSides = styled.View<{ side: string; color: string }>`
   align-items: center;
   justify-content: center;
+  background-color: ${({ theme, side, color }) =>
+    side === "left" ? color : theme.COLORS.DANGER};
+  padding: 0 ${RFPercentage(2)}px;
 `;
 
-export const IconSides = styled(Icon)<{ side: string }>`
+export const IconSides = styled(Icon).attrs(({ theme }) => ({
+  color: theme.COLORS.TEXT_ALT,
+}))`
   font-size: ${RFValue(32)}px;
-  color: ${({ theme, side }) =>
-    side === "left" ? theme.COLORS.SECONDARY_DARK : theme.COLORS.DANGER};
-  ${({ side }) =>
-    side === "left"
-      ? css`
-          margin-left: ${RFPercentage(2)}px;
-        `
-      : css`
-          margin-right: ${RFPercentage(2)}px;
-        `};
 `;

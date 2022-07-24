@@ -2,6 +2,7 @@ import { useNavigation } from "@react-navigation/native";
 import React from "react";
 import { View } from "react-native";
 import { ListDataProps } from "../../@types/data-props";
+import { shadow } from "../../screens/Home/styles";
 import {
   Container,
   Date,
@@ -20,7 +21,7 @@ export function CardList({ data }: CardListProps) {
   const navigation = useNavigation();
 
   return (
-    <Container onPress={() => navigation.navigate("InfoList")}>
+    <Container style={shadow} onPress={() => navigation.navigate("InfoList")}>
       <TitleBox>
         <IconBox>
           <IconCard

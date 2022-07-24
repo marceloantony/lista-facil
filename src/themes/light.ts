@@ -9,6 +9,12 @@ export default {
     BLACK: "#000000",
     GRAY: "#c8c6c4",
 
+    BACKGROUND_COLOR: "#F4F2F7",
+    FOREGROUND_COLOR: "#FFFFFF",
+    FOREGROUND_COLOR_2: "#F9F9F9",
+    PRIMARY_TEXT_COLOR: "#27242C",
+    PRIMARY_TEXT_COLOR_2: "#8A8A8E",
+
     // Cores principais
     PRIMARY_LIGHT: "#FFA200",
     PRIMARY: "#FF8400",

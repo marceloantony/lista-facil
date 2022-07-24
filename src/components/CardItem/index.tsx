@@ -27,8 +27,8 @@ export function CardItem({ data }: CardItemProps) {
 
   const renderSideIcon = (iconName: string, side: "left" | "right") => {
     return (
-      <BoxIconSides>
-        <IconSides name={iconName} side={side} />
+      <BoxIconSides color={category.color} side={side}>
+        <IconSides name={iconName} />
       </BoxIconSides>
     );
   };
@@ -51,9 +51,6 @@ export function CardItem({ data }: CardItemProps) {
         onSwipeableRightOpen={removeItem}
       >
         <Conteiner
-          // style={{
-          //   elevation: 3,
-          // }}
         >
           <LeftBorder color={category.color} />
 
@@ -64,7 +61,7 @@ export function CardItem({ data }: CardItemProps) {
 
           <Value>
             R${" "}
-            {data.value.toLocaleString("pt-BR", {
+            {(data.value*data.qtd).toLocaleString("pt-BR", {
               minimumFractionDigits: 2,
               maximumFractionDigits: 2,
             })}

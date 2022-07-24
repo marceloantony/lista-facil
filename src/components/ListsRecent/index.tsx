@@ -7,21 +7,36 @@ import { CardList } from "../CardList";
 import Icon from "react-native-vector-icons/AntDesign";
 import {
   Container,
-  Diviser,
+  GroupButtons,
   Header,
   LinkContent,
   LinkText,
   Title,
 } from "./styles";
 
-import { ListDataProps } from "../../@types/data-props";
 import { listsExemple } from "../../data/categories";
+import { ButtonMenu } from "../ButtonMenu";
 
 export function ListsRecent() {
   const navigation = useNavigation();
 
+  function openScreen() {
+    navigation.navigate("screenB", { name: "Em Breve. CALMA!" });
+  }
+
   return (
     <Container>
+      <GroupButtons>
+        <ButtonMenu title="Itens Casa" icon="home" />
+        <ButtonMenu
+          title="Criar Lista"
+          icon="plus"
+          onPress={() => navigation.navigate("InfoList")}
+        />
+        <ButtonMenu title="Em Breve" icon="question" onPress={openScreen} />
+        {/* <ButtonMenu title="Tema Claro" icon="sun" /> */}
+        {/* <ButtonMenu title="Tema Escuro" icon="moon" /> */}
+      </GroupButtons>
       <Header>
         <Title>Compras Recentes</Title>
         <TouchableOpacity onPress={() => navigation.navigate("AllLists")}>
@@ -35,7 +50,6 @@ export function ListsRecent() {
         data={listsExemple}
         keyExtractor={(item) => item.id}
         renderItem={({ item }) => <CardList data={item} />}
-        ItemSeparatorComponent={() => <Diviser />}
       />
     </Container>
   );

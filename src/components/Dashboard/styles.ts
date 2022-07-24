@@ -5,4 +5,5 @@ export const Container = styled.View`
   background-color: ${({ theme }) => theme.COLORS.WHITE};
   border-radius: 9px;
   overflow: hidden;
+  margin-bottom: 24px;
 `;
