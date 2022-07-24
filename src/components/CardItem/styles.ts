@@ -6,15 +6,15 @@ export const Conteiner = styled.View`
   flex-direction: row;
   align-items: center;
   background-color: ${({ theme }) => theme.COLORS.BACKGROUND};
-  border: 0.5px solid ${({ theme }) => theme.COLORS.GRAY};
-  border-radius: 6px;
-  margin: 6px ${RFPercentage(2)}px;
+  /* border: 0.5px solid ${({ theme }) => theme.COLORS.GRAY};
+  border-radius: 6px; */
+  margin: 1px 0;
   overflow: hidden;
 `;
 
 export const LeftBorder = styled.View<{ color: string }>`
   height: 100%;
-  width: 8px;
+  width: 6px;
   background-color: ${({ color }) => color};
   margin-right: ${RFPercentage(2)}px;
 `;

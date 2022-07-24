@@ -18,16 +18,18 @@ export const AllList = styled(
 `;
 
 export const ItemCategory = styled.View<{ key: string }>`
-  margin: 12px 0;
+  /* margin: 12px 0; */
 `;
 
-export const HearderCategory = styled.View`
+export const HearderCategory = styled.View<ColorProps>`
   flex-direction: row;
-  margin-left: ${RFPercentage(2)}px;
-`;
+  padding: 6px ${RFPercentage(2)}px;
+  /* background-color: ${({ color }) => color}; */
+  background-color: ${({ theme }) => theme.COLORS.GRAY}2A;
+  `;
 
 export const TitleCategory = styled.Text<ColorProps>`
-  font-family: ${({ theme }) => theme.FONTS.REGULAR};
+  font-family: ${({ theme }) => theme.FONTS.MEDIUM};
   font-size: ${RFValue(15)}px;
   color: ${({ color }) => color};
   margin-left: ${RFPercentage(1.5)}px;

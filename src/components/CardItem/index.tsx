@@ -51,9 +51,9 @@ export function CardItem({ data }: CardItemProps) {
         onSwipeableRightOpen={removeItem}
       >
         <Conteiner
-          style={{
-            elevation: 3,
-          }}
+          // style={{
+          //   elevation: 3,
+          // }}
         >
           <LeftBorder color={category.color} />
 
