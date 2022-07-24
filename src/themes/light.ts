@@ -1,10 +1,15 @@
 export default {
   COLORS: {
+    // Cores neutras
     BACKGROUND: "#FAFAFA",
     TEXT: "#1A1A1A",
     TEXT_ALT: "#FAFAFA",
     TEXT_SECONDARY: "#323130",
+    WHITE: "#FFFFFF",
+    BLACK: "#000000",
+    GRAY: "#c8c6c4",
 
+    // Cores principais
     PRIMARY_LIGHT: "#FFA200",
     PRIMARY: "#FF8400",
     PRIMARY_DARK: "#FF7300",
@@ -28,9 +33,8 @@ export default {
     OTHERS: "#54A9C0",
     PET: "#54533C",
 
-    WHITE: "#FFFFFF",
-    BLACK: "#000000",
-    GRAY: "#c8c6c4",
+    // Cores de informação
+    DANGER: "#D32F2F",
   },
 
   FONTS: {

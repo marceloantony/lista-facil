@@ -18,14 +18,18 @@ export const AllList = styled(
 `;
 
 export const ItemCategory = styled.View<{ key: string }>`
-  margin: 12px 0;
+  margin: 12px ${RFPercentage(3)}px;
+`;
+
+export const HearderCategory = styled.View`
+  flex-direction: row;
 `;
 
 export const TitleCategory = styled.Text<ColorProps>`
   font-family: ${({ theme }) => theme.FONTS.REGULAR};
   font-size: ${RFValue(15)}px;
-  margin-left: ${RFPercentage(3)}px;
   color: ${({ color }) => color};
+  margin-left: ${RFPercentage(1.5)}px;
 `;
 
 export const FooterEmpty = styled.View`

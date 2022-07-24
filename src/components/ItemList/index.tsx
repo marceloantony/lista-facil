@@ -1,9 +1,12 @@
 import React from "react";
-import { View } from "react-native";
-import { RFPercentage } from "react-native-responsive-fontsize";
+import { Alert, Text, View } from "react-native";
+import Swipeable from "react-native-gesture-handler/Swipeable";
+
 import {
+  BoxIconSides,
   Conteiner,
-  IconBox,
+  IconSides,
+  LeftBorder,
   Quantity,
   Title,
   TitleBox,
@@ -12,11 +15,7 @@ import {
 import { ItemListDataProps } from "../../@types/data-props";
 import { categories } from "../../data/categories";
 
-import IconAC from "react-native-vector-icons/AntDesign";
-import IconMCI from "react-native-vector-icons/MaterialCommunityIcons";
-import IconMI from "react-native-vector-icons/MaterialIcons";
-import IconFA from "react-native-vector-icons/FontAwesome";
-import IconFA5 from "react-native-vector-icons/FontAwesome5";
+import { GestureHandlerRootView } from "react-native-gesture-handler";
 
 type ItemListProps = {
   key: string;
@@ -26,57 +25,52 @@ type ItemListProps = {
 export function ItemList({ data }: ItemListProps) {
   const category = categories.filter((c) => c.id === data.category)[0];
 
+  const renderSideIcon = (iconName: string, side: "left" | "right") => {
+    return (
+      <BoxIconSides>
+        <IconSides name={iconName} side={side} />
+      </BoxIconSides>
+    );
+  };
+
+  const removeItem = () => {
+    Alert.alert(
+      "Remover",
+      "Tem certeza que desdeja remover esse item da lista?"
+    );
+  };
+
   return (
-    <>
-      <Conteiner>
-        <TitleBox>
-          <IconBox>
-            {category.iconLib === "AntDesign" ? (
-              <IconAC
-                name={category.iconName}
-                size={RFPercentage(3.75)}
-                color={category.color}
-              />
-            ) : undefined}
-            {category.iconLib === "MaterialCommunityIcons" ? (
-              <IconMCI
-                name={category.iconName}
-                size={RFPercentage(3.75)}
-                color={category.color}
-              />
-            ) : undefined}
-            {category.iconLib === "MaterialIcons" ? (
-              <IconMI
-                name={category.iconName}
-                size={RFPercentage(3.75)}
-                color={category.color}
-              />
-            ) : undefined}
-            {category.iconLib === "FontAwesome" ? (
-              <IconFA
-                name={category.iconName}
-                size={RFPercentage(3.75)}
-                color={category.color}
-              />
-            ) : undefined}
-            {category.iconLib === "FontAwesome5" ? (
-              <IconFA5
-                name={category.iconName}
-                size={RFPercentage(3.75)}
-                color={category.color}
-              />
-            ) : undefined}
-          </IconBox>
-          <View>
+    <GestureHandlerRootView>
+      <Swipeable
+        renderLeftActions={() => renderSideIcon("information-outline", "left")}
+        renderRightActions={() => renderSideIcon("trash-can-outline", "right")}
+        onSwipeableLeftOpen={() =>
+          Alert.alert("", "Aqui será exibido as informações do item incerido!")
+        }
+        onSwipeableRightOpen={removeItem}
+      >
+        <Conteiner
+          style={{
+            elevation: 3,
+          }}
+        >
+          <LeftBorder color={category.color} />
+
+          <TitleBox>
             <Title>{data.title}</Title>
             <Quantity>Quantidade: {data.qtd}</Quantity>
-          </View>
-        </TitleBox>
-        <Value>R$ {data.value.toLocaleString("pt-BR", {
-            minimumFractionDigits: 2,
-            maximumFractionDigits: 2,
-          })}</Value>
-      </Conteiner>
-    </>
+          </TitleBox>
+
+          <Value>
+            R${" "}
+            {data.value.toLocaleString("pt-BR", {
+              minimumFractionDigits: 2,
+              maximumFractionDigits: 2,
+            })}
+          </Value>
+        </Conteiner>
+      </Swipeable>
+    </GestureHandlerRootView>
   );
 }
