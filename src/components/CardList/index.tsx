@@ -5,7 +5,6 @@ import { ListDataProps } from "../../@types/data-props";
 import {
   Container,
   Date,
-  Diviser,
   IconBox,
   IconCard,
   Title,
@@ -21,28 +20,25 @@ export function CardList({ data }: CardListProps) {
   const navigation = useNavigation();
 
   return (
-    <>
-      <Container onPress={() => navigation.navigate("InfoList")}>
-        <TitleBox>
-          <IconBox>
-            <IconCard
-              name={data.value >= 500 ? "shopping-cart" : "shopping-bag"}
-            />
-          </IconBox>
-          <View>
-            <Title>{data.title}</Title>
-            <Date>{data.date.toLocaleDateString()}</Date>
-          </View>
-        </TitleBox>
-        <Value>
-          R${" "}
-          {data.value.toLocaleString("pt-BR", {
-            minimumFractionDigits: 2,
-            maximumFractionDigits: 2,
-          })}
-        </Value>
-      </Container>
-      <Diviser />
-    </>
+    <Container onPress={() => navigation.navigate("InfoList")}>
+      <TitleBox>
+        <IconBox>
+          <IconCard
+            name={data.value >= 500 ? "shopping-cart" : "shopping-bag"}
+          />
+        </IconBox>
+        <View>
+          <Title>{data.title}</Title>
+          <Date>{data.date.toLocaleDateString()}</Date>
+        </View>
+      </TitleBox>
+      <Value>
+        R${" "}
+        {data.value.toLocaleString("pt-BR", {
+          minimumFractionDigits: 2,
+          maximumFractionDigits: 2,
+        })}
+      </Value>
+    </Container>
   );
 }

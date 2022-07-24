@@ -237,4 +237,5 @@ export const listsExemple: ListDataProps[] = [
   { id: "2", title: "Pão de Açucar", date: new Date(), value: 602.25 },
   { id: "3", title: "Carrefour", date: new Date(), value: 202.25 },
   { id: "4", title: "Assaí", date: new Date(), value: 2020.2 },
+  { id: "5", title: "Assaí", date: new Date(), value: 2020.2 },
 ];

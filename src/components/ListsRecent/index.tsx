@@ -7,6 +7,7 @@ import { CardList } from "../CardList";
 import Icon from "react-native-vector-icons/AntDesign";
 import {
   Container,
+  Diviser,
   Header,
   LinkContent,
   LinkText,
@@ -34,6 +35,7 @@ export function ListsRecent() {
         data={listsExemple}
         keyExtractor={(item) => item.id}
         renderItem={({ item }) => <CardList data={item} />}
+        ItemSeparatorComponent={() => <Diviser />}
       />
     </Container>
   );

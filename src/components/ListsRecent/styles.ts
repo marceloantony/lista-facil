@@ -8,14 +8,13 @@ export const Container = styled.View`
   background-color: ${({ theme }) => theme.COLORS.BACKGROUND};
   border-top-left-radius: 20px;
   border-top-right-radius: 20px;
-  padding: 0 ${RFPercentage(2)}px;
 `;
 
 export const Header = styled.View`
   flex-direction: row;
   align-items: center;
   justify-content: space-between;
-  margin: 16px 0 8px;
+  margin: 16px ${RFPercentage(2)}px 8px;
 `;
 
 export const Title = styled.Text`
@@ -35,4 +34,11 @@ export const LinkText = styled.Text`
   font-size: ${RFValue(13)}px;
   margin-right: ${RFPercentage(0.5)}px;
   margin-top: -3px;
+`;
+
+export const Diviser = styled.Text`
+  height: 1px;
+  width: 85%;
+  margin: 0 auto;
+  background-color: ${({ theme }) => theme.COLORS.GRAY};
 `;

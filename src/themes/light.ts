@@ -18,7 +18,7 @@ export default {
 
     // Cores das categorias
     BAZUTILI: "#A8A8A8",
-    BAKERY: "#F0EDAB",
+    BAKERY: "#EBB446",
     CANDIES: "#E8A345",
     CLEANING: "#FFB5EE",
     CONDCONS: "#D63F02",
@@ -31,7 +31,7 @@ export default {
     HYGIENE: "#A4ACD6",
     MEATS: "#AD2626",
     OTHERS: "#54A9C0",
-    PET: "#54533C",
+    PET: "#444444",
 
     // Cores de informação
     DANGER: "#D32F2F",
