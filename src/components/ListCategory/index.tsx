@@ -3,7 +3,7 @@ import { ScrollView } from "react-native";
 
 import { RFPercentage } from "react-native-responsive-fontsize";
 
-import { ItemList } from "../ItemList";
+import { CardItem } from "../CardItem";
 import {
   Container,
   FooterEmpty,
@@ -11,7 +11,7 @@ import {
   ItemCategory,
   TitleCategory,
 } from "./styles";
-import { CategoriesProps, ItemListDataProps } from "../../@types/data-props";
+import { CategoriesProps, CardItemDataProps } from "../../@types/data-props";
 import { categories } from "../../data/categories";
 
 import IconAC from "react-native-vector-icons/AntDesign";
@@ -20,11 +20,11 @@ import IconMI from "react-native-vector-icons/MaterialIcons";
 import IconFA from "react-native-vector-icons/FontAwesome";
 import IconFA5 from "react-native-vector-icons/FontAwesome5";
 
-type CategoryListProps = {
-  items: ItemListDataProps[];
+type ListCategoryProps = {
+  items: CardItemDataProps[];
 };
 
-export function CategoryList({ items }: CategoryListProps) {
+export function ListCategory({ items }: ListCategoryProps) {
   const renderItems = (category: CategoriesProps) => {
     const itemsByCategory = items.filter(
       (item) => item.category === category.id
@@ -77,7 +77,7 @@ export function CategoryList({ items }: CategoryListProps) {
         </HearderCategory>
         
         {itemsByCategory.map((item) => (
-          <ItemList data={item} key={item.id} />
+          <CardItem data={item} key={item.id} />
         ))}
         
       </ItemCategory>

@@ -12,17 +12,17 @@ import {
   TitleBox,
   Value,
 } from "./styles";
-import { ItemListDataProps } from "../../@types/data-props";
+import { CardItemDataProps } from "../../@types/data-props";
 import { categories } from "../../data/categories";
 
 import { GestureHandlerRootView } from "react-native-gesture-handler";
 
-type ItemListProps = {
+type CardItemProps = {
   key: string;
-  data: ItemListDataProps;
+  data: CardItemDataProps;
 };
 
-export function ItemList({ data }: ItemListProps) {
+export function CardItem({ data }: CardItemProps) {
   const category = categories.filter((c) => c.id === data.category)[0];
 
   const renderSideIcon = (iconName: string, side: "left" | "right") => {
@@ -46,7 +46,7 @@ export function ItemList({ data }: ItemListProps) {
         renderLeftActions={() => renderSideIcon("information-outline", "left")}
         renderRightActions={() => renderSideIcon("trash-can-outline", "right")}
         onSwipeableLeftOpen={() =>
-          Alert.alert("", "Aqui será exibido as informações do item incerido!")
+          Alert.alert("", "Aqui serão exibido as informações do item!")
         }
         onSwipeableRightOpen={removeItem}
       >

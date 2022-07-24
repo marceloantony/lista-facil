@@ -6,5 +6,5 @@ import { ListDataProps } from "../../@types/data-props";
 export const Container = styled.View``;
 
 export const AllList = styled(FlatList as new (props: FlatListProps<ListDataProps>) => FlatList<ListDataProps>)`
-  padding: 0 ${RFPercentage(3)}px;
+  padding: 0 ${RFPercentage(2)}px;
 `;

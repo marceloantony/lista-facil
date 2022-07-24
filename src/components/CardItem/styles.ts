@@ -8,7 +8,7 @@ export const Conteiner = styled.View`
   background-color: ${({ theme }) => theme.COLORS.BACKGROUND};
   border: 0.5px solid ${({ theme }) => theme.COLORS.GRAY};
   border-radius: 6px;
-  margin: 8px 0;
+  margin: 6px ${RFPercentage(2)}px;
   overflow: hidden;
 `;
 
@@ -52,9 +52,9 @@ export const IconSides = styled(Icon)<{ side: string }>`
   ${({ side }) =>
     side === "left"
       ? css`
-          margin-right: ${RFPercentage(2)}px;
+          margin-left: ${RFPercentage(2)}px;
         `
       : css`
-          margin-left: ${RFPercentage(2)}px;
+          margin-right: ${RFPercentage(2)}px;
         `};
 `;

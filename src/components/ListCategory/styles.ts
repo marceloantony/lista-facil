@@ -18,11 +18,12 @@ export const AllList = styled(
 `;
 
 export const ItemCategory = styled.View<{ key: string }>`
-  margin: 12px ${RFPercentage(3)}px;
+  margin: 12px 0;
 `;
 
 export const HearderCategory = styled.View`
   flex-direction: row;
+  margin-left: ${RFPercentage(2)}px;
 `;
 
 export const TitleCategory = styled.Text<ColorProps>`

@@ -8,7 +8,7 @@ export const Container = styled.View`
   background-color: ${({ theme }) => theme.COLORS.BACKGROUND};
   border-top-left-radius: 20px;
   border-top-right-radius: 20px;
-  padding: 0 ${RFPercentage(3)}px;
+  padding: 0 ${RFPercentage(2)}px;
 `;
 
 export const Header = styled.View`

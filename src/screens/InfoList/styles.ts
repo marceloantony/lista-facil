@@ -1,6 +1,6 @@
 import styled from "styled-components/native";
 import { RFPercentage, RFValue } from "react-native-responsive-fontsize";
-import IconInput from "react-native-vector-icons/MaterialCommunityIcons";
+import IconInput from "react-native-vector-icons/AntDesign";
 import IconButton from "react-native-vector-icons/Octicons";
 
 export const Conteiner = styled.View`
@@ -28,13 +28,13 @@ export const TituloInput = styled.TextInput`
   background-color: #0000001a;
 `;
 
-export const IconMarket = styled(IconInput).attrs({
+export const IconEditTitle = styled(IconInput).attrs({
   size: RFPercentage(3.75),
 })`
   color: ${({ theme }) => theme.COLORS.TEXT_ALT};
   position: absolute;
   top: 6px;
-  left: ${RFPercentage(4.5)}px;
+  left: ${RFPercentage(4)}px;
 `;
 
 export const ButtonAddItem = styled.TouchableOpacity.attrs({

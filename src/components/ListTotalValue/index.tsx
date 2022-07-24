@@ -1,13 +1,13 @@
 import React from "react";
-import { ItemListDataProps } from "../../@types/data-props";
+import { CardItemDataProps } from "../../@types/data-props";
 
 import { Container, Value } from "./styles";
 
 type ValueListProps = {
-  items: ItemListDataProps[];
+  items: CardItemDataProps[];
 };
 
-export function ValueList({ items }: ValueListProps) {
+export function ListTotalValue({ items }: ValueListProps) {
   const calcTotal = () => {
     let total = 0;
     items.map((item) => {

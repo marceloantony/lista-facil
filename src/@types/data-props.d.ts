@@ -5,7 +5,7 @@ export type ListDataProps = {
     value: number;
 }
 
-export type ItemListDataProps = {
+export type CardItemDataProps = {
     id: string;
     title: string;
     qtd: number;

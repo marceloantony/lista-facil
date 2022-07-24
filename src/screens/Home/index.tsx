@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { useNavigation } from "@react-navigation/native";
 import { Box, Container, GroupButtons } from "./styles";
-import { ButtonMenu, Dashboard, Logo, RecentLists } from "../../components";
+import { ButtonMenu, Dashboard, Logo, ListsRecent } from "../../components";
 
 export function Home() {
   const navigation = useNavigation();
@@ -21,7 +21,7 @@ export function Home() {
           <ButtonMenu title="Itens em Casa" icon="home" />
         </GroupButtons>
       </Box>
-      <RecentLists />
+      <ListsRecent />
     </Container>
   );
 }

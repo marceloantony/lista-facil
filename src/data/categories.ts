@@ -1,4 +1,4 @@
-import { CategoriesProps, ItemListDataProps, ListDataProps } from "../@types/data-props";
+import { CategoriesProps, CardItemDataProps, ListDataProps } from "../@types/data-props";
 import light from "../themes/light";
 
 export const categories: CategoriesProps[] = [
@@ -123,7 +123,7 @@ export const categories: CategoriesProps[] = [
   },
 ];
 
-export const itemsExemple: ItemListDataProps[] = [
+export const itemsExemple: CardItemDataProps[] = [
   {
     id: "1",
     title: "Fosforos",

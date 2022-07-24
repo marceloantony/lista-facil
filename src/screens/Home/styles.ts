@@ -12,7 +12,7 @@ export const Container = styled(LinearGradient).attrs(({ theme }) => ({
 `;
 
 export const Box = styled.View`
-  padding: 12% ${RFPercentage(3)}px 0;
+  padding: 12% ${RFPercentage(2)}px 0;
 `;
 
 export const GroupButtons = styled.View`

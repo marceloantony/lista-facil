@@ -1,7 +1,6 @@
 import { useNavigation } from "@react-navigation/native";
 import React from "react";
 import { View } from "react-native";
-import { RFPercentage } from "react-native-responsive-fontsize";
 import { ListDataProps } from "../../@types/data-props";
 import {
   Container,
@@ -20,18 +19,6 @@ type CardListProps = {
 
 export function CardList({ data }: CardListProps) {
   const navigation = useNavigation();
-
-  const option = {
-    year: "numeric",
-    month: "long",
-    weekday: "long",
-    day: "numeric",
-    hour: "numeric",
-    minute: "numeric",
-    second: "numeric",
-    era: "long",
-    timeZoneName: "long",
-  };
 
   return (
     <>

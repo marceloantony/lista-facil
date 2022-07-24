@@ -16,7 +16,7 @@ import {
 import { ListDataProps } from "../../@types/data-props";
 import { listsExemple } from "../../data/categories";
 
-export function RecentLists() {
+export function ListsRecent() {
   const navigation = useNavigation();
 
   return (

@@ -1,26 +1,32 @@
 import React, { useState } from "react";
-import { CategoryList, ValueList } from "../../components";
+import { ListCategory, ListTotalValue } from "../../components";
 import { itemsExemple } from "../../data/categories";
+import light from "../../themes/light";
 import {
   Conteiner,
   TituloLista,
   TituloInput,
-  IconMarket,
+  IconEditTitle,
   ButtonAddItem,
   IconButtonAdd,
 } from "./styles";
 
 export function InfoList() {
-  const [title, setTitle] = useState("Shibata");
+  const [title, setTitle] = useState("");
 
   return (
     <Conteiner>
       <TituloLista>
-        <TituloInput onChangeText={setTitle} value={title} />
-        <IconMarket name="format-list-text" />
+        <TituloInput
+          placeholder="Nome do mercado aqui..."
+          placeholderTextColor={`${light.COLORS.TEXT_ALT}A0`}
+          onChangeText={setTitle}
+          value={title}
+        />
+        <IconEditTitle name="edit" />
       </TituloLista>
-      <CategoryList items={itemsExemple} />
-      <ValueList items={itemsExemple} />
+      <ListCategory items={itemsExemple} />
+      <ListTotalValue items={itemsExemple} />
       <ButtonAddItem>
         <IconButtonAdd name="plus" />
       </ButtonAddItem>
