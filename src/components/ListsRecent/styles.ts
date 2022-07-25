@@ -9,12 +9,6 @@ export const Container = styled.View`
   border-top-right-radius: 20px;
 `;
 
-export const GroupButtons = styled.View`
-  flex-direction: row;
-  justify-content: space-between;
-  margin: 16px ${RFPercentage(2)}px 8px;
-`;
-
 export const Header = styled.View`
   flex-direction: row;
   align-items: center;
