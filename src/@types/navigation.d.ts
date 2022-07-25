@@ -4,6 +4,7 @@ export declare global {
             AllLists: undefined;
             Home: undefined;
             InfoList: undefined;
+            ListHome: undefined;
             screenB: {
                 name: string;
             };

@@ -3,6 +3,7 @@ import { useTheme } from "styled-components/native";
 import { AllLists } from "../screens/AllLists";
 import { Home } from "../screens/Home";
 import { InfoList } from "../screens/InfoList";
+import { ListHome } from "../screens/ListHome";
 import { ScreenB } from "../screens/ScreenB";
 const { Screen, Navigator } = createNativeStackNavigator();
 
@@ -16,7 +17,7 @@ export function StackRoutes() {
         }}
         component={Home}
       />
-      
+
       <Screen
         name="AllLists"
         options={{
@@ -27,7 +28,7 @@ export function StackRoutes() {
             backgroundColor: useTheme().COLORS.PRIMARY,
           },
           headerTitleStyle: {
-            fontFamily: useTheme().FONTS.MEDIUM
+            fontFamily: useTheme().FONTS.MEDIUM,
           },
           headerTintColor: useTheme().COLORS.FOREGROUND_COLOR,
         }}
@@ -41,7 +42,24 @@ export function StackRoutes() {
         }}
         component={InfoList}
       />
-      
+
+      <Screen
+        name="ListHome"
+        options={{
+          title: "Itens em casa",
+          headerShadowVisible: false,
+          headerTitleAlign: "center",
+          headerStyle: {
+            backgroundColor: useTheme().COLORS.PRIMARY,
+          },
+          headerTitleStyle: {
+            fontFamily: useTheme().FONTS.MEDIUM,
+          },
+          headerTintColor: useTheme().COLORS.FOREGROUND_COLOR,
+        }}
+        component={ListHome}
+      />
+
       <Screen
         name="screenB"
         options={{

@@ -153,6 +153,13 @@ export const itemsExemple: CardItemDataProps[] = [
     category: "4",
   },
   {
+    id: "41",
+    title: "Peito de Frago",
+    qtd: 3,
+    value: 22.9,
+    category: "4",
+  },
+  {
     id: "5",
     title: "Molho de Tomate",
     qtd: 12,
@@ -164,6 +171,20 @@ export const itemsExemple: CardItemDataProps[] = [
     title: "Batata Frita",
     qtd: 6,
     value: 16.9,
+    category: "6",
+  },
+  {
+    id: "61",
+    title: "Nuggets",
+    qtd: 6,
+    value: 6.9,
+    category: "6",
+  },
+  {
+    id: "62",
+    title: "Hambúrguer",
+    qtd: 6,
+    value: 9.9,
     category: "6",
   },
   {
@@ -185,6 +206,13 @@ export const itemsExemple: CardItemDataProps[] = [
     title: "Sabonete",
     qtd: 5,
     value: 3.12,
+    category: "9",
+  },
+  {
+    id: "91",
+    title: "Shampoo",
+    qtd: 1,
+    value: 22.69,
     category: "9",
   },
   {
@@ -233,9 +261,15 @@ export const itemsExemple: CardItemDataProps[] = [
 ];
 
 export const listsExemple: ListDataProps[] = [
-  { id: "1", title: "Carrefour", date: new Date(), value: 202.25 },
-  { id: "2", title: "Pão de Açucar", date: new Date(), value: 602.25 },
-  { id: "3", title: "Carrefour", date: new Date(), value: 202.25 },
+  { id: "1", title: "Carrefour", date: new Date(), value: 202.5 },
+  { id: "2", title: "Pão de Açucar", date: new Date(), value: 602.75 },
+  { id: "3", title: "Carrefour", date: new Date(), value: 210.25 },
   { id: "4", title: "Assaí", date: new Date(), value: 2020.2 },
-  { id: "5", title: "Assaí", date: new Date(), value: 2020.2 },
+  { id: "5", title: "Atacadão", date: new Date(), value: 1982.3 },
+  { id: "6", title: "Extra", date: new Date(), value: 360.15 },
+  { id: "7", title: "Shibata", date: new Date(), value: 85.9 },
+  { id: "8", title: "Tenda", date: new Date(), value: 125.7 },
+  { id: "9", title: "Rede Krill", date: new Date(), value: 496.35 },
+  { id: "10", title: "Takahashi", date: new Date(), value: 965.4 },
+  { id: "11", title: "Sondas", date: new Date(), value: 1506.6 },
 ];

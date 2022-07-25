@@ -9,7 +9,7 @@ export type CardItemDataProps = {
     id: string;
     title: string;
     qtd: number;
-    value: number;
+    value?: number;
     category: string;
     obs?: string;
 }

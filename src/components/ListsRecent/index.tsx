@@ -26,7 +26,11 @@ export function ListsRecent() {
   return (
     <Container>
       <GroupButtons>
-        <ButtonMenu title="Itens Casa" icon="home" />
+        <ButtonMenu
+          title="Itens Casa"
+          icon="home"
+          onPress={() => navigation.navigate("ListHome")}
+        />
         <ButtonMenu
           title="Criar Lista"
           icon="plus"
