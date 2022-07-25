@@ -1,10 +1,9 @@
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
+import { useTheme } from "styled-components/native";
 import { AllLists } from "../screens/AllLists";
 import { Home } from "../screens/Home";
 import { InfoList } from "../screens/InfoList";
 import { ScreenB } from "../screens/ScreenB";
-import light from "../themes/light";
-
 const { Screen, Navigator } = createNativeStackNavigator();
 
 export function StackRoutes() {
@@ -25,12 +24,12 @@ export function StackRoutes() {
           headerShadowVisible: false,
           headerTitleAlign: "center",
           headerStyle: {
-            backgroundColor: light.COLORS.PRIMARY,
+            backgroundColor: useTheme().COLORS.PRIMARY,
           },
           headerTitleStyle: {
-            fontFamily: light.FONTS.MEDIUM
+            fontFamily: useTheme().FONTS.MEDIUM
           },
-          headerTintColor: light.COLORS.WHITE,
+          headerTintColor: useTheme().COLORS.FOREGROUND_COLOR,
         }}
         component={AllLists}
       />
@@ -38,16 +37,7 @@ export function StackRoutes() {
       <Screen
         name="InfoList"
         options={{
-          title: "Lista de Compras",
-          headerShadowVisible: false,
-          headerTitleAlign: "center",
-          headerStyle: {
-            backgroundColor: light.COLORS.PRIMARY,
-          },
-          headerTitleStyle: {
-            fontFamily: light.FONTS.MEDIUM
-          },
-          headerTintColor: light.COLORS.WHITE,
+          headerShown: false,
         }}
         component={InfoList}
       />

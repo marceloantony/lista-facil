@@ -1,15 +1,14 @@
 import React from "react";
 import { useNavigation } from "@react-navigation/native";
-import { RFPercentage } from "react-native-responsive-fontsize";
 
 import { FlatList, TouchableOpacity } from "react-native";
 import { CardList } from "../CardList";
-import Icon from "react-native-vector-icons/AntDesign";
 import {
   Container,
   GroupButtons,
   Header,
   LinkContent,
+  LinkIcon,
   LinkText,
   Title,
 } from "./styles";
@@ -42,7 +41,7 @@ export function ListsRecent() {
         <TouchableOpacity onPress={() => navigation.navigate("AllLists")}>
           <LinkContent>
             <LinkText>Ver todas</LinkText>
-            <Icon name="arrowright" size={RFPercentage(2)} />
+            <LinkIcon name="arrowright" />
           </LinkContent>
         </TouchableOpacity>
       </Header>

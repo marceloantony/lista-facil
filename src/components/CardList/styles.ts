@@ -25,17 +25,19 @@ export const TitleBox = styled.View`
 export const Title = styled.Text`
   font-family: ${({ theme }) => theme.FONTS.REGULAR};
   font-size: ${RFValue(17)}px;
+  color: ${({ theme }) => theme.COLORS.PRIMARY_TEXT_COLOR};
 `;
 
 export const Date = styled.Text`
   font-family: ${({ theme }) => theme.FONTS.REGULAR};
   font-size: ${RFValue(11)}px;
-  color: ${({ theme }) => theme.COLORS.TEXT_SECONDARY};
+  color: ${({ theme }) => theme.COLORS.SECONDARY_TEXT_COLOR};
 `;
 
 export const Value = styled.Text`
   font-family: ${({ theme }) => theme.FONTS.BOLD};
   font-size: ${RFValue(18)}px;
+  color: ${({ theme }) => theme.COLORS.PRIMARY_TEXT_COLOR};
 `;
 
 export const IconCard = styled(Icon).attrs({

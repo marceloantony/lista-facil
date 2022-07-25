@@ -1,53 +1,61 @@
 import { RFPercentage, RFValue } from "react-native-responsive-fontsize";
 import Icon from "react-native-vector-icons/MaterialCommunityIcons";
-import styled, { css, useTheme } from "styled-components/native";
+import styled, { css } from "styled-components/native";
 
 export const Conteiner = styled.View`
   flex-direction: row;
   align-items: center;
-  background-color: ${({ theme }) => theme.COLORS.BACKGROUND};
+  background-color: ${({ theme }) => theme.COLORS.FOREGROUND_COLOR};
+  border-radius: 6px;
+  margin: 6px ${RFPercentage(2)}px;
   overflow: hidden;
 `;
 
 export const LeftBorder = styled.View<{ color: string }>`
-  height: ${RFPercentage(3)}px;
-  width: ${RFPercentage(3)}px;
-  border-radius: 100px;
+  height: 100%;
+  width: 8px;
   background-color: ${({ color }) => color};
-  margin: 0 ${RFPercentage(2)}px;
+  margin-right: ${RFPercentage(2)}px;
 `;
 
 export const TitleBox = styled.View`
-  margin: 10px auto 10px 0;
+  margin: 8px auto 8px 0;
 `;
 
 export const Title = styled.Text`
   font-family: ${({ theme }) => theme.FONTS.MEDIUM};
   font-size: ${RFValue(17)}px;
+  color: ${({ theme }) => theme.COLORS.PRIMARY_TEXT_COLOR};
 `;
 
 export const Quantity = styled.Text`
   font-family: ${({ theme }) => theme.FONTS.REGULAR};
   font-size: ${RFValue(12)}px;
-  color: ${({ theme }) => theme.COLORS.TEXT_SECONDARY};
+  color: ${({ theme }) => theme.COLORS.SECONDARY_TEXT_COLOR};
 `;
 
 export const Value = styled.Text`
   font-family: ${({ theme }) => theme.FONTS.BOLD};
   font-size: ${RFValue(18)}px;
-  margin-right: ${RFPercentage(3)}px;
+  color: ${({ theme }) => theme.COLORS.PRIMARY_TEXT_COLOR};
+  margin-right: ${RFPercentage(2)}px;
 `;
 
-export const BoxIconSides = styled.View<{ side: string; color: string }>`
+export const BoxIconSides = styled.View`
   align-items: center;
   justify-content: center;
-  background-color: ${({ theme, side, color }) =>
-    side === "left" ? color : theme.COLORS.DANGER};
-  padding: 0 ${RFPercentage(2)}px;
 `;
 
-export const IconSides = styled(Icon).attrs(({ theme }) => ({
-  color: theme.COLORS.TEXT_ALT,
-}))`
+export const IconSides = styled(Icon)<{ side: string; color: string }>`
   font-size: ${RFValue(32)}px;
+  color: ${({ theme, side, color }) =>
+    side === "left" ? color : theme.COLORS.DANGER};
+  ${({ side }) =>
+    side === "left"
+      ? css`
+          margin-left: ${RFPercentage(2)}px;
+        `
+      : css`
+          margin-right: ${RFPercentage(2)}px;
+        `};
 `;

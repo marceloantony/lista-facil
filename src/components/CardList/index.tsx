@@ -1,8 +1,8 @@
-import { useNavigation } from "@react-navigation/native";
 import React from "react";
+import { useNavigation } from "@react-navigation/native";
+import { useTheme } from "styled-components/native";
 import { View } from "react-native";
-import { ListDataProps } from "../../@types/data-props";
-import { shadow } from "../../screens/Home/styles";
+
 import {
   Container,
   Date,
@@ -12,6 +12,9 @@ import {
   TitleBox,
   Value,
 } from "./styles";
+import { ListDataProps } from "../../@types/data-props";
+
+import { shadowThemeDark, shadowThemeLight } from "../../themes/shadow";
 
 type CardListProps = {
   data: ListDataProps;
@@ -21,7 +24,7 @@ export function CardList({ data }: CardListProps) {
   const navigation = useNavigation();
 
   return (
-    <Container style={shadow} onPress={() => navigation.navigate("InfoList")}>
+    <Container style={useTheme().CURRENT_THEME === "LIGHT" ? shadowThemeLight : shadowThemeDark} onPress={() => navigation.navigate("InfoList")}>
       <TitleBox>
         <IconBox>
           <IconCard

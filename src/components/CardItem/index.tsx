@@ -1,6 +1,8 @@
 import React from "react";
-import { Alert, Text, View } from "react-native";
+import { Alert } from "react-native";
+import { useTheme } from "styled-components/native";
 import Swipeable from "react-native-gesture-handler/Swipeable";
+import { GestureHandlerRootView } from "react-native-gesture-handler";
 
 import {
   BoxIconSides,
@@ -13,9 +15,10 @@ import {
   Value,
 } from "./styles";
 import { CardItemDataProps } from "../../@types/data-props";
-import { categories } from "../../data/categories";
 
-import { GestureHandlerRootView } from "react-native-gesture-handler";
+import { categories } from "../../data/categories";
+import { shadowThemeDark, shadowThemeLight } from "../../themes/shadow";
+
 
 type CardItemProps = {
   key: string;
@@ -27,8 +30,8 @@ export function CardItem({ data }: CardItemProps) {
 
   const renderSideIcon = (iconName: string, side: "left" | "right") => {
     return (
-      <BoxIconSides color={category.color} side={side}>
-        <IconSides name={iconName} />
+      <BoxIconSides>
+        <IconSides name={iconName} side={side} color={category.color} />
       </BoxIconSides>
     );
   };
@@ -44,14 +47,13 @@ export function CardItem({ data }: CardItemProps) {
     <GestureHandlerRootView>
       <Swipeable
         renderLeftActions={() => renderSideIcon("information-outline", "left")}
-        renderRightActions={() => renderSideIcon("trash-can-outline", "right")}
+        renderRightActions={() => renderSideIcon("delete-forever-outline", "right")}
         onSwipeableLeftOpen={() =>
           Alert.alert("", "Aqui serão exibido as informações do item!")
         }
         onSwipeableRightOpen={removeItem}
       >
-        <Conteiner
-        >
+        <Conteiner style={useTheme().CURRENT_THEME === "LIGHT" ? shadowThemeLight : shadowThemeDark}>
           <LeftBorder color={category.color} />
 
           <TitleBox>
@@ -61,7 +63,7 @@ export function CardItem({ data }: CardItemProps) {
 
           <Value>
             R${" "}
-            {(data.value*data.qtd).toLocaleString("pt-BR", {
+            {data.value.toLocaleString("pt-BR", {
               minimumFractionDigits: 2,
               maximumFractionDigits: 2,
             })}

@@ -37,7 +37,7 @@ export function ListCategory({ items }: ListCategoryProps) {
     return (
       <ItemCategory key={category.id}>
 
-        <HearderCategory color={category.color}>
+        <HearderCategory>
           {category.iconLib === "AntDesign" ? (
             <IconAC
               name={category.iconName}

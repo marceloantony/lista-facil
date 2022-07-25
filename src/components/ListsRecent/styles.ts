@@ -1,7 +1,6 @@
-import { FlatList, FlatListProps } from "react-native";
-import { RFPercentage, RFValue } from "react-native-responsive-fontsize";
 import styled from "styled-components/native";
-import { ListDataProps } from "../../@types/data-props";
+import { RFPercentage, RFValue } from "react-native-responsive-fontsize";
+import Icon from "react-native-vector-icons/AntDesign";
 
 export const Container = styled.View`
   flex: 1;
@@ -26,7 +25,7 @@ export const Header = styled.View`
 export const Title = styled.Text`
   font-family: ${({ theme }) => theme.FONTS.MEDIUM};
   font-size: ${RFValue(17)}px;
-  letter-spacing: -0.5px;
+  color: ${({ theme }) => theme.COLORS.PRIMARY_TEXT_COLOR};
 `;
 
 export const LinkContent = styled.View`
@@ -38,6 +37,12 @@ export const LinkContent = styled.View`
 export const LinkText = styled.Text`
   font-family: ${({ theme }) => theme.FONTS.REGULAR};
   font-size: ${RFValue(13)}px;
+  color: ${({ theme }) => theme.COLORS.PRIMARY_TEXT_COLOR};
   margin-right: ${RFPercentage(0.5)}px;
   margin-top: -3px;
 `;
+
+export const LinkIcon = styled(Icon).attrs(({ theme }) => ({
+  size: RFPercentage(2),
+  color: theme.COLORS.PRIMARY_TEXT_COLOR,
+}))``;

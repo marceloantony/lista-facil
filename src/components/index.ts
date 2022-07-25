@@ -4,5 +4,6 @@ export { CardList } from "./CardList";
 export { Dashboard } from "./Dashboard";
 export { ListCategory } from "./ListCategory";
 export { ListsRecent } from "./ListsRecent";
-export { ListTotalValue } from "./ListTotalValue";
 export { Logo } from "./Logo";
+export { PageHeaderList } from "./PageHeaderList";
+export { PageFooterList } from "./PageFooterList";

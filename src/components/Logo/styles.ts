@@ -14,7 +14,7 @@ export const IconLogo = styled.Image`
 `;
 
 export const Title = styled.Text`
-  color: ${({ theme }) => theme.COLORS.TEXT_ALT};
+  color: ${({ theme }) => theme.COLORS.TEXT_LOGO};
   font-family: ${({ theme }) => theme.FONTS.LIGHT};
   font-size: ${RFValue(22)}px;
 `;

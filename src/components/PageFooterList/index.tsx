@@ -7,7 +7,7 @@ type ValueListProps = {
   items: CardItemDataProps[];
 };
 
-export function ListTotalValue({ items }: ValueListProps) {
+export function PageFooterList({ items }: ValueListProps) {
   const calcTotal = () => {
     let total = 0;
     items.map((item) => {
@@ -20,8 +20,7 @@ export function ListTotalValue({ items }: ValueListProps) {
   };
   return (
     <Container>
-      <Value>Valor total</Value>
-      <Value>R$ {calcTotal()}</Value>
+      <Value>Total: R$ {calcTotal()}</Value>
     </Container>
   );
 }

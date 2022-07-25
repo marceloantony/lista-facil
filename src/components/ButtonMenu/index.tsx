@@ -1,6 +1,8 @@
 import React from "react";
 import { RFPercentage } from "react-native-responsive-fontsize";
-import { shadow } from "../../screens/Home/styles";
+import { useTheme } from "styled-components/native";
+import { shadowThemeDark, shadowThemeLight } from "../../themes/shadow";
+
 import { Circle, Container, ButtonIcon, Title, IconButton } from "./styles";
 
 type ButtonMenuProps = {
@@ -11,7 +13,7 @@ type ButtonMenuProps = {
 
 export function ButtonMenu({ title, icon, onPress }: ButtonMenuProps) {
   return (
-    <Container onPress={onPress} style={shadow}>
+    <Container onPress={onPress} style={useTheme().CURRENT_THEME === "LIGHT" ? shadowThemeLight : shadowThemeDark}>
       <Circle>
         <ButtonIcon>
           <IconButton name={icon} size={RFPercentage(3)} />
