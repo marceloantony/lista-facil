@@ -53,7 +53,7 @@ export function CardItem({ data }: CardItemProps) {
         }
         onSwipeableRightOpen={removeItem}
       >
-        <Conteiner style={useTheme().CURRENT_THEME === "LIGHT" ? shadowThemeLight : shadowThemeDark}>
+        <Conteiner style={useTheme().CURRENT_THEME === "light" ? shadowThemeLight : shadowThemeDark}>
           <LeftBorder color={category.color} />
 
           <TitleBox>

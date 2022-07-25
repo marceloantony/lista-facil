@@ -13,7 +13,7 @@ type ButtonMenuProps = {
 
 export function ButtonMenu({ title, icon, onPress }: ButtonMenuProps) {
   return (
-    <Container onPress={onPress} style={useTheme().CURRENT_THEME === "LIGHT" ? shadowThemeLight : shadowThemeDark}>
+    <Container onPress={onPress} style={useTheme().CURRENT_THEME === "light" ? shadowThemeLight : shadowThemeDark}>
       <Circle>
         <ButtonIcon>
           <IconButton name={icon} size={RFPercentage(3)} />

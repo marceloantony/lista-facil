@@ -24,7 +24,7 @@ export function CardList({ data }: CardListProps) {
   const navigation = useNavigation();
 
   return (
-    <Container style={useTheme().CURRENT_THEME === "LIGHT" ? shadowThemeLight : shadowThemeDark} onPress={() => navigation.navigate("InfoList")}>
+    <Container style={useTheme().CURRENT_THEME === "light" ? shadowThemeLight : shadowThemeDark} onPress={() => navigation.navigate("InfoList")}>
       <TitleBox>
         <IconBox>
           <IconCard

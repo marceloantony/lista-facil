@@ -43,5 +43,6 @@ export default {
     MEDIUM: "Nunito_500Medium",
     BOLD: "Nunito_700Bold",
   },
-  CURRENT_THEME: "DARK"
+
+  CURRENT_THEME: "dark",
 };

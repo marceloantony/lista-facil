@@ -44,5 +44,5 @@ export default {
     BOLD: "Nunito_700Bold",
   },
 
-  CURRENT_THEME: "LIGHT"
+  CURRENT_THEME: "light"
 };
