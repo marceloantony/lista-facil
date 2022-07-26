@@ -19,7 +19,6 @@ import { CardItemDataProps } from "../../@types/data-props";
 import { categories } from "../../data/categories";
 import { shadowThemeDark, shadowThemeLight } from "../../themes/shadow";
 
-
 type CardItemProps = {
   key: string;
   data: CardItemDataProps;
@@ -47,13 +46,21 @@ export function CardItem({ data }: CardItemProps) {
     <GestureHandlerRootView>
       <Swipeable
         renderLeftActions={() => renderSideIcon("information-outline", "left")}
-        renderRightActions={() => renderSideIcon("delete-forever-outline", "right")}
+        renderRightActions={() =>
+          renderSideIcon("delete-forever-outline", "right")
+        }
         onSwipeableLeftOpen={() =>
           Alert.alert("", "Aqui serão exibido as informações do item!")
         }
         onSwipeableRightOpen={removeItem}
       >
-        <Conteiner style={useTheme().CURRENT_THEME === "light" ? shadowThemeLight : shadowThemeDark}>
+        <Conteiner
+          style={
+            useTheme().CURRENT_THEME === "light"
+              ? shadowThemeLight
+              : shadowThemeDark
+          }
+        >
           <LeftBorder color={category.color} />
 
           <TitleBox>
@@ -61,13 +68,15 @@ export function CardItem({ data }: CardItemProps) {
             <Quantity>Quantidade: {data.qtd}</Quantity>
           </TitleBox>
 
-          <Value>
-            R${" "}
-            {data.value.toLocaleString("pt-BR", {
-              minimumFractionDigits: 2,
-              maximumFractionDigits: 2,
-            })}
-          </Value>
+          {data.value && (
+            <Value>
+              R${" "}
+              {data.value.toLocaleString("pt-BR", {
+                minimumFractionDigits: 2,
+                maximumFractionDigits: 2,
+              })}
+            </Value>
+          )}
         </Conteiner>
       </Swipeable>
     </GestureHandlerRootView>
