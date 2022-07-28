@@ -11,7 +11,7 @@ import {
   ItemCategory,
   TitleCategory,
 } from "./styles";
-import { CategoriesProps, CardItemDataProps } from "../../@types/data-props";
+import { CategoriesProps, ItemDataProps } from "../../@types/data-props";
 import { categories } from "../../data/categories";
 
 import IconAC from "react-native-vector-icons/AntDesign";
@@ -21,7 +21,7 @@ import IconFA from "react-native-vector-icons/FontAwesome";
 import IconFA5 from "react-native-vector-icons/FontAwesome5";
 
 type ListCategoryProps = {
-  items: CardItemDataProps[];
+  items: ItemDataProps[];
 };
 
 export function ListCategory({ items }: ListCategoryProps) {

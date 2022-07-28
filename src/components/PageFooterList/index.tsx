@@ -1,10 +1,10 @@
 import React from "react";
-import { CardItemDataProps } from "../../@types/data-props";
+import { ItemDataProps } from "../../@types/data-props";
 
 import { Container, Value } from "./styles";
 
 type ValueListProps = {
-  items: CardItemDataProps[];
+  items: ItemDataProps[];
 };
 
 export function PageFooterList({ items }: ValueListProps) {

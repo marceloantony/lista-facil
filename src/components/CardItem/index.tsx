@@ -14,14 +14,14 @@ import {
   TitleBox,
   Value,
 } from "./styles";
-import { CardItemDataProps } from "../../@types/data-props";
+import { ItemDataProps } from "../../@types/data-props";
 
 import { categories } from "../../data/categories";
 import { shadowThemeDark, shadowThemeLight } from "../../themes/shadow";
 
 type CardItemProps = {
   key: string;
-  data: CardItemDataProps;
+  data: ItemDataProps;
 };
 
 export function CardItem({ data }: CardItemProps) {

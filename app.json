@@ -1,6 +1,6 @@
 {
   "expo": {
-    "name": "lista-facil",
+    "name": "Lista Fácil",
     "slug": "lista-facil",
     "version": "1.0.0",
     "orientation": "portrait",
@@ -24,7 +24,8 @@
       "adaptiveIcon": {
         "foregroundImage": "./assets/adaptive-icon.png",
         "backgroundColor": "#FFFFFF"
-      }
+      },
+      "package": "com.maddparadox.listafacil"
     },
     "web": {
       "favicon": "./assets/favicon.png"
