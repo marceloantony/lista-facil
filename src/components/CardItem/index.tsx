@@ -21,9 +21,11 @@ import { shadowThemeDark, shadowThemeLight } from "../../themes/shadow";
 
 type Props = {
   data: ItemDataProps;
+  setRef: any;
+  closeRow: any;
 };
 
-export function CardItem({ data }: Props) {
+export function CardItem({ data, setRef, closeRow }: Props) {
   const category = categories.filter((c) => c.id === data.category)[0];
 
   const renderSideIcon = (iconName: string, side: "left" | "right") => {
@@ -34,24 +36,34 @@ export function CardItem({ data }: Props) {
     );
   };
 
-  const removeItem = () => {
+  const openModal = (id: string) => {
+    Alert.alert("", "Aqui serão exibido as informações do item!", [
+      { onPress: () => closeRow(id) },
+    ]);
+  };
+
+  const removeItem = (id: string) => {
     Alert.alert(
       "Remover",
-      "Tem certeza que desdeja remover esse item da lista?"
+      "Tem certeza que desdeja remover esse item da lista?",
+      [
+        { text: "Não", onPress: () => closeRow(id), style: "cancel" },
+        { text: "Sim", onPress: () => closeRow(id) },
+      ]
     );
   };
 
   return (
     <GestureHandlerRootView>
       <Swipeable
+        id={data.id}
+        ref={(ref) => setRef(ref)}
         renderLeftActions={() => renderSideIcon("information-outline", "left")}
         renderRightActions={() =>
           renderSideIcon("delete-forever-outline", "right")
         }
-        onSwipeableLeftOpen={() =>
-          Alert.alert("", "Aqui serão exibido as informações do item!")
-        }
-        onSwipeableRightOpen={removeItem}
+        onSwipeableLeftOpen={() => openModal(data.id)}
+        onSwipeableRightOpen={() => removeItem(data.id)}
       >
         <Conteiner
           style={

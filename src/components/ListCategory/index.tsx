@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { RFPercentage } from "react-native-responsive-fontsize";
 
 import { CardItem } from "../CardItem";
@@ -20,16 +20,20 @@ import IconMCI from "react-native-vector-icons/MaterialCommunityIcons";
 import IconMI from "react-native-vector-icons/MaterialIcons";
 import IconFA from "react-native-vector-icons/FontAwesome";
 import IconFA5 from "react-native-vector-icons/FontAwesome5";
+import { Swipeable } from "react-native-gesture-handler";
 
 type Props = {
   items: ItemDataProps[];
 };
 
 export function ListCategory({ items }: Props) {
+  const [refItems, setRefItems] = useState<Swipeable[]>([]);
   const renderItems = (category: CategoryDataProps) => {
     const itemsByCategory = items.filter(
       (item) => item.category === category.id
     );
+
+    // console.log(refItems.length);
 
     if (itemsByCategory.length === 0) {
       return <></>;
@@ -79,7 +83,24 @@ export function ListCategory({ items }: Props) {
         <ListItems
           data={itemsByCategory}
           keyExtractor={(item) => item.id}
-          renderItem={({ item }) => <CardItem data={item} />}
+          renderItem={({ item }) => (
+            <CardItem
+              data={item}
+              setRef={(ref: Swipeable) => {
+                if (ref && refItems.indexOf(ref) === -1) {
+                  refItems.push(ref);
+                }
+                setRefItems(refItems);
+              }}
+              closeRow={(id: string) => {
+                refItems.map((ref) => {
+                  if (ref.props.id === id) {
+                    ref.close();
+                  }
+                });
+              }}
+            />
+          )}
           scrollEnabled={false}
         />
       </ItemCategory>
