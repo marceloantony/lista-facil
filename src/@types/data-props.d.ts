@@ -14,7 +14,7 @@ export type ItemDataProps = {
     obs?: string;
 }
 
-export type CategoriesProps = {
+export type CategoryDataProps = {
     id: string;
     name: string;
     iconName: string;

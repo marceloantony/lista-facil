@@ -19,12 +19,11 @@ import { ItemDataProps } from "../../@types/data-props";
 import { categories } from "../../data/categories";
 import { shadowThemeDark, shadowThemeLight } from "../../themes/shadow";
 
-type CardItemProps = {
-  key: string;
+type Props = {
   data: ItemDataProps;
 };
 
-export function CardItem({ data }: CardItemProps) {
+export function CardItem({ data }: Props) {
   const category = categories.filter((c) => c.id === data.category)[0];
 
   const renderSideIcon = (iconName: string, side: "left" | "right") => {

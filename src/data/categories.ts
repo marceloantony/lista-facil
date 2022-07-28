@@ -1,7 +1,7 @@
-import { CategoriesProps, ItemDataProps, ListDataProps } from "../@types/data-props";
+import { CategoryDataProps, ItemDataProps, ListDataProps } from "../@types/data-props";
 import light from "../themes/light";
 
-export const categories: CategoriesProps[] = [
+export const categories: CategoryDataProps[] = [
   {
     id: "1",
     name: "Bazar e Utilidades",

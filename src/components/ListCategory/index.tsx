@@ -1,6 +1,4 @@
 import React from "react";
-import { ScrollView } from "react-native";
-
 import { RFPercentage } from "react-native-responsive-fontsize";
 
 import { CardItem } from "../CardItem";
@@ -9,9 +7,12 @@ import {
   FooterEmpty,
   HearderCategory,
   ItemCategory,
+  ListCategories,
+  ListItems,
   TitleCategory,
 } from "./styles";
-import { CategoriesProps, ItemDataProps } from "../../@types/data-props";
+
+import { CategoryDataProps, ItemDataProps } from "../../@types/data-props";
 import { categories } from "../../data/categories";
 
 import IconAC from "react-native-vector-icons/AntDesign";
@@ -20,12 +21,12 @@ import IconMI from "react-native-vector-icons/MaterialIcons";
 import IconFA from "react-native-vector-icons/FontAwesome";
 import IconFA5 from "react-native-vector-icons/FontAwesome5";
 
-type ListCategoryProps = {
+type Props = {
   items: ItemDataProps[];
 };
 
-export function ListCategory({ items }: ListCategoryProps) {
-  const renderItems = (category: CategoriesProps) => {
+export function ListCategory({ items }: Props) {
+  const renderItems = (category: CategoryDataProps) => {
     const itemsByCategory = items.filter(
       (item) => item.category === category.id
     );
@@ -35,8 +36,7 @@ export function ListCategory({ items }: ListCategoryProps) {
     }
 
     return (
-      <ItemCategory key={category.id}>
-
+      <ItemCategory>
         <HearderCategory>
           {category.iconLib === "AntDesign" ? (
             <IconAC
@@ -75,21 +75,26 @@ export function ListCategory({ items }: ListCategoryProps) {
           ) : undefined}
           <TitleCategory color={category.color}>{category.name}</TitleCategory>
         </HearderCategory>
-        
-        {itemsByCategory.map((item) => (
-          <CardItem data={item} key={item.id} />
-        ))}
-        
+
+        <ListItems
+          data={itemsByCategory}
+          keyExtractor={(item) => item.id}
+          renderItem={({ item }) => <CardItem data={item} />}
+          scrollEnabled={false}
+        />
       </ItemCategory>
     );
   };
 
   return (
     <Container>
-      <ScrollView>
-        {categories.map((category) => renderItems(category))}
-        <FooterEmpty />
-      </ScrollView>
+      <ListCategories
+        data={categories}
+        keyExtractor={(item) => item.id}
+        renderItem={({ item }) => renderItems(item)}
+        ListFooterComponent={<FooterEmpty />}
+      />
+      <FooterEmpty />
     </Container>
   );
 }

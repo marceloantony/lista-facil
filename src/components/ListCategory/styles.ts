@@ -1,7 +1,7 @@
 import styled from "styled-components/native";
 import { FlatList, FlatListProps } from "react-native";
 import { RFPercentage, RFValue } from "react-native-responsive-fontsize";
-import { CategoriesProps } from "../../@types/data-props";
+import { CategoryDataProps, ItemDataProps } from "../../@types/data-props";
 
 export type ColorProps = {
   color: string;
@@ -9,15 +9,19 @@ export type ColorProps = {
 
 export const Container = styled.View``;
 
-export const AllList = styled(
+export const ListCategories = styled(
   FlatList as new (
-    props: FlatListProps<CategoriesProps>
-  ) => FlatList<CategoriesProps>
-)`
-  padding: 0 ${RFPercentage(3)}px;
-`;
+    props: FlatListProps<CategoryDataProps>
+  ) => FlatList<CategoryDataProps>
+)``;
 
-export const ItemCategory = styled.View<{ key: string }>`
+export const ListItems = styled(
+  FlatList as new (
+    props: FlatListProps<ItemDataProps>
+  ) => FlatList<ItemDataProps>
+)``;
+
+export const ItemCategory = styled.View`
   margin: 12px 0;
 `;
 
