@@ -1,14 +1,14 @@
 import styled from "styled-components/native";
 import { RFPercentage, RFValue } from "react-native-responsive-fontsize";
 import { LinearGradient } from "expo-linear-gradient";
-import Icon from "react-native-vector-icons/Octicons";
+import Icon from "react-native-vector-icons/MaterialCommunityIcons";
 
 export const Container = styled.TouchableOpacity.attrs({
   activeOpacity: 0.9,
 })`
   z-index: 10;
   position: absolute;
-  bottom: ${RFPercentage(5)}px;
+  bottom: ${RFPercentage(7)}px;
   right: ${RFPercentage(3.5)}px;
 `;
 

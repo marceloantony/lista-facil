@@ -9,7 +9,7 @@ export function ButtonAddItem() {
   return (
     <Container>
       <Background>
-        <IconAdd name="plus" />
+        <IconAdd name="basket-plus-outline" />
       </Background>
     </Container>
   );

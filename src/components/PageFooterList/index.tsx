@@ -11,7 +11,7 @@ export function PageFooterList({ items }: ValueListProps) {
   const calcTotal = () => {
     let total = 0;
     items.map((item) => {
-      total += item.value * item.qtd;
+      if (item.value) total += item.value * item.qtd;
     });
     return total.toLocaleString("pt-BR", {
       minimumFractionDigits: 2,
@@ -20,7 +20,8 @@ export function PageFooterList({ items }: ValueListProps) {
   };
   return (
     <Container>
-      <Value>Total: R$ {calcTotal()}</Value>
+      <Value>Valor Total:</Value>
+      <Value>R$ {calcTotal()}</Value>
     </Container>
   );
 }
