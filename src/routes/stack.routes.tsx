@@ -21,16 +21,7 @@ export function StackRoutes() {
       <Screen
         name="AllLists"
         options={{
-          title: "Todas as Compras",
-          headerShadowVisible: false,
-          headerTitleAlign: "center",
-          headerStyle: {
-            backgroundColor: useTheme().COLORS.PRIMARY,
-          },
-          headerTitleStyle: {
-            fontFamily: useTheme().FONTS.MEDIUM,
-          },
-          headerTintColor: useTheme().COLORS.FOREGROUND_COLOR,
+          headerShown: false,
         }}
         component={AllLists}
       />
@@ -46,16 +37,7 @@ export function StackRoutes() {
       <Screen
         name="ListHome"
         options={{
-          title: "Itens em casa",
-          headerShadowVisible: false,
-          headerTitleAlign: "center",
-          headerStyle: {
-            backgroundColor: useTheme().COLORS.PRIMARY,
-          },
-          headerTitleStyle: {
-            fontFamily: useTheme().FONTS.MEDIUM,
-          },
-          headerTintColor: useTheme().COLORS.FOREGROUND_COLOR,
+          headerShown: false,
         }}
         component={ListHome}
       />

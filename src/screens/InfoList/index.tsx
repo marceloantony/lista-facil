@@ -7,7 +7,10 @@ import { Conteiner } from "./styles";
 export function InfoList() {
   return (
     <Conteiner>
-      <PageHeaderList />
+      <PageHeaderList
+        title="Lista de Compras"
+        placeholder="Nome do mercado aqui..."
+      />
       <ListCategory items={itemsExemple} />
       <PageFooterList items={itemsExemple} />
       <ButtonAddItem />

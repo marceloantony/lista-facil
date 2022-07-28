@@ -1,14 +1,18 @@
 import React from "react";
-import { useNavigation } from "@react-navigation/native";
-import { CardList } from "../../components";
-import { Container, AllList } from "./styles";
+
+import { CardList, PageHeaderList } from "../../components";
+import { Container, List } from "./styles";
 import { ListDataProps } from "../../@types/data-props";
 import { listsExemple } from "../../data/categories";
 
 export function AllLists(data: ListDataProps) {
   return (
     <Container>
-      <AllList
+      <PageHeaderList
+        title="Todas as Compras"
+        placeholder="Pesquise uma lista aqui..."
+      />
+      <List
         data={listsExemple}
         keyExtractor={(item) => item.id}
         renderItem={({ item }) => <CardList data={item} />}

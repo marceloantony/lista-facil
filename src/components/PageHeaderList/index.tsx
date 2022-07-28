@@ -12,9 +12,14 @@ import {
   Header,
 } from "./styles";
 
-export function PageHeaderList() {
+type Props = {
+  title: string;
+  placeholder: string;
+};
+
+export function PageHeaderList({ title, placeholder }: Props) {
   const navigation = useNavigation();
-  const [title, setTitle] = useState("");
+  const [text, setText] = useState("");
 
   return (
     <Container>
@@ -22,13 +27,13 @@ export function PageHeaderList() {
         <ButtonBack onPress={() => navigation.goBack()}>
           <IconBack name="arrowleft" />
         </ButtonBack>
-        <TitlePage>Lista de Compras</TitlePage>
+        <TitlePage>{title}</TitlePage>
       </Header>
       <Box>
         <InputTitle
-          placeholder="Nome do mercado..."
-          onChangeText={setTitle}
-          value={title}
+          placeholder={placeholder}
+          onChangeText={setText}
+          value={text}
         />
         <IconFilter name="filter" />
       </Box>

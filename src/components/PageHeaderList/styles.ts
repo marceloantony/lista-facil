@@ -20,7 +20,7 @@ export const ButtonBack = styled.TouchableOpacity`
 `;
 
 export const TitlePage = styled.Text`
-  font-size: ${RFValue(16)}px;
+  font-size: ${RFValue(17)}px;
   font-family: ${({ theme }) => theme.FONTS.MEDIUM};
   color: ${({ theme }) => theme.COLORS.FOREGROUND_COLOR};
   margin: 0 auto;
@@ -46,7 +46,7 @@ export const Container = styled(LinearGradient).attrs(({ theme }) => ({
 export const InputTitle = styled.TextInput.attrs(({ theme }) => ({
   placeholderTextColor: `${theme.COLORS.FOREGROUND_COLOR}AA`,
 }))`
-  font-size: ${RFValue(18)}px;
+  font-size: ${RFValue(16)}px;
   font-family: ${({ theme }) => theme.FONTS.MEDIUM};
   color: ${({ theme }) => theme.COLORS.FOREGROUND_COLOR};
   background-color: #0000002d;
