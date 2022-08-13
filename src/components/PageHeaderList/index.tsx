@@ -14,7 +14,7 @@ import {
 
 type Props = {
   title: string;
-  placeholder: string;
+  placeholder?: string;
 };
 
 export function PageHeaderList({ title, placeholder }: Props) {
@@ -24,19 +24,21 @@ export function PageHeaderList({ title, placeholder }: Props) {
   return (
     <Container>
       <Header>
-        <ButtonBack onPress={() => navigation.goBack()}>
+        <ButtonBack onPress={navigation.goBack}>
           <IconBack name="arrowleft" />
         </ButtonBack>
         <TitlePage>{title}</TitlePage>
       </Header>
-      <Box>
-        <InputTitle
-          placeholder={placeholder}
-          onChangeText={setText}
-          value={text}
-        />
-        <IconFilter name="filter" />
-      </Box>
+      {placeholder && (
+        <Box>
+          <InputTitle
+            placeholder={placeholder}
+            onChangeText={setText}
+            value={text}
+          />
+          <IconFilter name="filter" />
+        </Box>
+      )}
     </Container>
   );
 }

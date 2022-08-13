@@ -1,10 +1,13 @@
 import React from "react";
+import { useNavigation } from "@react-navigation/native";
 import { ListCategory, PageFooterList, PageHeaderList } from "../../components";
 import { ButtonAddItem } from "../../components/ButtonAddItem";
 import { itemsExemple } from "../../data/categories";
 import { Conteiner } from "./styles";
 
 export function InfoList() {
+  const navigation = useNavigation();
+  
   return (
     <Conteiner>
       <PageHeaderList
@@ -13,7 +16,7 @@ export function InfoList() {
       />
       <ListCategory items={itemsExemple} />
       <PageFooterList items={itemsExemple} />
-      <ButtonAddItem />
+      <ButtonAddItem onPress={() => navigation.navigate("AddItem")} />
     </Conteiner>
   );
 }

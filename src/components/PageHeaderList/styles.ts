@@ -6,12 +6,12 @@ import { LinearGradient } from "expo-linear-gradient";
 export const Header = styled.View`
   flex-direction: row;
   align-items: center;
-  margin-bottom: 12px;
-`;
+  `;
 
 export const Box = styled.View`
   flex-direction: row;
   align-items: center;
+  margin-top: 12px;
 `;
 
 export const ButtonBack = styled.TouchableOpacity`

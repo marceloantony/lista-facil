@@ -1,13 +1,13 @@
 import React from "react";
-import {
-  Container,
-  Background,
-  IconAdd,
-} from "./styles";
+import { Container, Background, IconAdd } from "./styles";
 
-export function ButtonAddItem() {
+type Props = {
+  onPress?: any;
+};
+
+export function ButtonAddItem({ onPress }: Props) {
   return (
-    <Container>
+    <Container onPress={onPress}>
       <Background>
         <IconAdd name="basket-plus-outline" />
       </Background>

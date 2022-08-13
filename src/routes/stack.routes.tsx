@@ -1,5 +1,6 @@
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import { useTheme } from "styled-components/native";
+import { AddItem } from "../screens/AddItem";
 import { AllLists } from "../screens/AllLists";
 import { Home } from "../screens/Home";
 import { InfoList } from "../screens/InfoList";
@@ -32,6 +33,14 @@ export function StackRoutes() {
           headerShown: false,
         }}
         component={InfoList}
+      />
+
+      <Screen
+        name="AddItem"
+        options={{
+          headerShown: false,
+        }}
+        component={AddItem}
       />
 
       <Screen
