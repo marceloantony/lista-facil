@@ -1,13 +1,17 @@
 import React from "react";
 import { useNavigation } from "@react-navigation/native";
-import { ListCategory, PageFooterList, PageHeaderList } from "../../components";
-import { ButtonAddItem } from "../../components/ButtonAddItem";
+import {
+  ButtonAddItem,
+  ListCategory,
+  PageFooterList,
+  PageHeaderList,
+} from "../../components";
 import { itemsExemple } from "../../data/categories";
 import { Conteiner } from "./styles";
 
 export function InfoList() {
   const navigation = useNavigation();
-  
+
   return (
     <Conteiner>
       <PageHeaderList

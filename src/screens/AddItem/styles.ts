@@ -7,16 +7,14 @@ export const Container = styled.View`
   flex: 1;
 `;
 
-export const Form = styled.ScrollView`
-  padding: 0 ${RFPercentage(2)}px;
-`;
+export const Form = styled.ScrollView``;
 
 export const Field = styled.View`
-  margin: 10px 0;
+  margin: 10px ${RFPercentage(2)}px;
 `;
 
 export const Label = styled.Text`
-  font-size: ${RFValue(14)}px;
+  font-size: ${RFValue(15)}px;
   font-family: ${({ theme }) => theme.FONTS.MEDIUM};
   color: ${({ theme }) => theme.COLORS.SECONDARY_TEXT_COLOR};
   margin-bottom: 10px;

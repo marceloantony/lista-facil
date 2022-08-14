@@ -1,6 +1,8 @@
+export { ButtonAddItem } from "./ButtonAddItem";
 export { ButtonMenu } from "./ButtonMenu";
 export { CardItem } from "./CardItem";
 export { CardList } from "./CardList";
+export { ChooseCategory } from "./ChooseCategory";
 export { Dashboard } from "./Dashboard";
 export { GroupButtonsMenu } from "./GroupButtonsMenu";
 export { ListCategory } from "./ListCategory";

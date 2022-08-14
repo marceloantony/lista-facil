@@ -2,7 +2,8 @@ import { useNavigation } from "@react-navigation/native";
 import React, { useState } from "react";
 import { Alert } from "react-native";
 import { useTheme } from "styled-components";
-import { PageHeaderList } from "../../components";
+import { CategoryDataProps } from "../../@types/data-props";
+import { ChooseCategory, PageHeaderList } from "../../components";
 import { shadowThemeDark, shadowThemeLight } from "../../themes/shadow";
 import {
   Container,
@@ -22,6 +23,14 @@ import {
   BtnText,
 } from "./styles";
 
+const catVoid: CategoryDataProps = {
+  id: "",
+  name: "",
+  iconName: "",
+  iconLib: "",
+  color: "",
+};
+
 export function AddItem() {
   const navigation = useNavigation();
   const shadow =
@@ -30,6 +39,7 @@ export function AddItem() {
   const [productName, setProductName] = useState("");
   const [productValue, setProductValue] = useState("");
   const [quantity, setQuantity] = useState("001");
+  const [category, setCategory] = useState<CategoryDataProps>();
   const [details, setDetails] = useState("");
 
   const handleQuantity = (type: "more" | "less") => {
@@ -117,7 +127,10 @@ export function AddItem() {
         {/* CATEGORIAS */}
         <Field>
           <Label>Categoria</Label>
-          {/* <Input style={shadow} /> */}
+          <ChooseCategory
+            category={category}
+            setCategory={(cat: CategoryDataProps) => setCategory(cat)}
+          />
         </Field>
 
         {/* DETALHES DO PRODUTO */}
