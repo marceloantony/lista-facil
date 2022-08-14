@@ -19,7 +19,7 @@ export function InfoList() {
         placeholder="Nome do mercado aqui..."
       />
       <ListCategory items={itemsExemple} />
-      <PageFooterList items={itemsExemple} />
+      <PageFooterList items={itemsExemple} onPress={navigation.goBack} />
       <ButtonAddItem onPress={() => navigation.navigate("AddItem")} />
     </Conteiner>
   );

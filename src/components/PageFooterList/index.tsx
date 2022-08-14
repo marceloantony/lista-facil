@@ -1,13 +1,14 @@
 import React from "react";
 import { ItemDataProps } from "../../@types/data-props";
 
-import { Container, Value } from "./styles";
+import { Btn, BtnBg, BtnIcon, BtnText, Container, Value } from "./styles";
 
 type ValueListProps = {
   items: ItemDataProps[];
+  onPress: any;
 };
 
-export function PageFooterList({ items }: ValueListProps) {
+export function PageFooterList({ items, onPress }: ValueListProps) {
   const calcTotal = () => {
     let total = 0;
     items.map((item) => {
@@ -20,7 +21,12 @@ export function PageFooterList({ items }: ValueListProps) {
   };
   return (
     <Container>
-      <Value>Valor Total:</Value>
+      <Btn onPress={onPress}>
+        <BtnBg>
+          <BtnIcon />
+          <BtnText>Finalizar</BtnText>
+        </BtnBg>
+      </Btn>
       <Value>R$ {calcTotal()}</Value>
     </Container>
   );
