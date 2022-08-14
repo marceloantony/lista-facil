@@ -1,8 +1,10 @@
-import { useNavigation } from "@react-navigation/native";
 import React, { useState } from "react";
 import { Alert, StyleProp, ViewStyle } from "react-native";
+import { useNavigation } from "@react-navigation/native";
 import { useTheme } from "styled-components";
-import { CategoryDataProps } from "../../@types/data-props";
+import uuid from "react-native-uuid";
+
+import { CategoryDataProps, ValidationProps } from "../../@types/data-props";
 import { ChooseCategory, PageHeaderList } from "../../components";
 import { shadowThemeDark, shadowThemeLight } from "../../themes/shadow";
 import {
@@ -24,12 +26,11 @@ import {
   ProductValueInput,
 } from "./styles";
 
-const catVoid: CategoryDataProps = {
-  id: "",
-  name: "",
-  iconName: "",
-  iconLib: "",
-  color: "",
+const validationVoid: ValidationProps = {
+  name: false,
+  value: false,
+  qtd: false,
+  category: false,
 };
 
 export function AddItem() {
@@ -38,10 +39,11 @@ export function AddItem() {
     useTheme().CURRENT_THEME === "light" ? shadowThemeLight : shadowThemeDark;
 
   const [productName, setProductName] = useState("");
-  const [productValue, setProductValue] = useState(0);
+  const [productValue, setProductValue] = useState("");
   const [quantity, setQuantity] = useState("001");
   const [category, setCategory] = useState<CategoryDataProps>();
   const [details, setDetails] = useState("");
+  const [validation, setValidation] = useState(validationVoid);
 
   const handleQuantity = (type: "more" | "less") => {
     let qtd = parseInt(quantity);
@@ -60,24 +62,29 @@ export function AddItem() {
   };
 
   const submitItem = () => {
-    if (
-      productName === "" ||
-      productValue === 0 ||
-      parseInt(quantity) === 0 ||
-      !category
-    ) {
+    const value = parseFloat(productValue) / 100;
+    const qtd = parseInt(quantity);
+    if (productName === "" || productValue === "" || qtd === 0 || !category) {
+      setValidation({
+        name: productName === "",
+        value: productValue === "",
+        qtd: qtd === 0,
+        category: !category,
+      });
+
       let body = "Os seguintes items precisam ser preenchidos:\n\n";
       body += productName === "" ? "\t• Nome do Produto;\n" : "";
-      body += productValue === 0 ? "\t• Valor do Produto;\n" : "";
-      body += parseInt(quantity) === 0 ? "\t• Quantidade;\n" : "";
+      body += productValue === "" ? "\t• Valor do Produto;\n" : "";
+      body += qtd === 0 ? "\t• Quantidade;\n" : "";
       body += !category ? "\t• Categoria;\n" : "";
       Alert.alert("Campos pendentes!", body);
     } else {
-      const prodValue = productValue.toLocaleString("pt-BR", {
+      const prodValue = value.toLocaleString("pt-BR", {
         minimumFractionDigits: 2,
         maximumFractionDigits: 2,
       });
       const body = `Seu item foi adicionado a lista com sucesso!
+      • ID: ${uuid.v4()};
       • Nome: ${productName};
       • Valor: R$ ${prodValue};
       • Quantidade: ${quantity};
@@ -96,7 +103,7 @@ export function AddItem() {
       <Form>
         {/* NOME DO PRODUTO */}
         <Field>
-          <Label>Nome do Produto</Label>
+          <Label required={validation.name}>Nome do Produto *</Label>
           <Input
             placeholder="Digite o Nome do Produto Aqui..."
             value={productName}
@@ -107,16 +114,14 @@ export function AddItem() {
 
         {/* VALOR DO PRODUTO */}
         <Field>
-          <Label>Valor do Produto</Label>
+          <Label required={validation.value}>Valor do Produto *</Label>
           <ProductValueField>
             <MonetaryValue>R$</MonetaryValue>
             <ProductValueInput
               placeholder="0,00"
               keyboardType="numeric"
-              value={productValue > 0 ? productValue.toString() : ""}
-              onChangeText={(masked, unmasked) =>
-                setProductValue(parseFloat(unmasked) / 100)
-              }
+              value={productValue}
+              onChangeText={(masked, unmasked) => setProductValue(unmasked)}
               style={shadow}
             />
           </ProductValueField>
@@ -124,7 +129,7 @@ export function AddItem() {
 
         {/* QUANTIDADE */}
         <Field>
-          <Label>Quantidade</Label>
+          <Label required={validation.qtd}>Quantidade *</Label>
           <QuantityField>
             <Btn onPress={() => handleQuantity("less")} style={shadow}>
               <BtnIcon name="minus" />
@@ -145,7 +150,7 @@ export function AddItem() {
 
         {/* CATEGORIAS */}
         <Field>
-          <Label>Categoria</Label>
+          <Label required={validation.category}>Categoria *</Label>
           <ChooseCategory
             category={category}
             setCategory={(cat: CategoryDataProps) => setCategory(cat)}

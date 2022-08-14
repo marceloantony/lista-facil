@@ -21,3 +21,10 @@ export type CategoryDataProps = {
     iconLib: string;
     color: string;
 }
+
+export type ValidationProps = {
+    name: boolean;
+    value: boolean;
+    qtd: boolean;
+    category: boolean;
+  };

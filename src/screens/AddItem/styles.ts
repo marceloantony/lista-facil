@@ -14,10 +14,11 @@ export const Field = styled.View`
   margin: 10px ${RFPercentage(2)}px;
 `;
 
-export const Label = styled.Text`
+export const Label = styled.Text<{ required?: boolean }>`
   font-size: ${RFValue(15)}px;
   font-family: ${({ theme }) => theme.FONTS.MEDIUM};
-  color: ${({ theme }) => theme.COLORS.SECONDARY_TEXT_COLOR};
+  color: ${({ theme, required }) =>
+    required ? theme.COLORS.DANGER : theme.COLORS.SECONDARY_TEXT_COLOR};
   margin-bottom: 10px;
 `;
 
@@ -37,10 +38,10 @@ export const ProductValueField = styled.View`
 
 const dollarMask = createNumberMask({
   prefix: [],
-  delimiter: '.',
-  separator: ',',
+  delimiter: ".",
+  separator: ",",
   precision: 2,
-})
+});
 export const ProductValueInput = styled(MaskInput).attrs({
   mask: dollarMask,
 })`
