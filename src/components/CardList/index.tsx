@@ -5,7 +5,7 @@ import { View } from "react-native";
 
 import {
   Container,
-  Date,
+  LabelDate,
   IconBox,
   IconCard,
   Title,
@@ -22,9 +22,17 @@ type CardListProps = {
 
 export function CardList({ data }: CardListProps) {
   const navigation = useNavigation();
+  const convertDate: Date = new Date(data.date);
 
   return (
-    <Container style={useTheme().CURRENT_THEME === "light" ? shadowThemeLight : shadowThemeDark} onPress={() => navigation.navigate("InfoList")}>
+    <Container
+      style={
+        useTheme().CURRENT_THEME === "light"
+          ? shadowThemeLight
+          : shadowThemeDark
+      }
+      onPress={() => navigation.navigate("InfoList", { idList: data.id })}
+    >
       <TitleBox>
         <IconBox>
           <IconCard
@@ -33,7 +41,7 @@ export function CardList({ data }: CardListProps) {
         </IconBox>
         <View>
           <Title>{data.title}</Title>
-          <Date>{data.date.toLocaleDateString()}</Date>
+          <LabelDate>{convertDate.toLocaleDateString()}</LabelDate>
         </View>
       </TitleBox>
       <Value>

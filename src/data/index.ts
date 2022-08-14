@@ -1,5 +1,11 @@
-import { CategoryDataProps, ItemDataProps, ListDataProps } from "../@types/data-props";
+import {
+  CategoryDataProps,
+  ItemDataProps,
+  ListDataProps,
+} from "../@types/data-props";
 import light from "../themes/light";
+
+export const keyAllLists = "@ListaFacil:AllLists";
 
 export const categories: CategoryDataProps[] = [
   {
@@ -261,15 +267,81 @@ export const itemsExemple: ItemDataProps[] = [
 ];
 
 export const listsExemple: ListDataProps[] = [
-  { id: "1", title: "Carrefour", date: new Date(), value: 202.5 },
-  { id: "2", title: "Pão de Açucar", date: new Date(), value: 602.75 },
-  { id: "3", title: "Carrefour", date: new Date(), value: 210.25 },
-  { id: "4", title: "Assaí", date: new Date(), value: 2020.2 },
-  { id: "5", title: "Atacadão", date: new Date(), value: 1982.3 },
-  { id: "6", title: "Extra", date: new Date(), value: 360.15 },
-  { id: "7", title: "Shibata", date: new Date(), value: 85.9 },
-  { id: "8", title: "Tenda", date: new Date(), value: 125.7 },
-  { id: "9", title: "Rede Krill", date: new Date(), value: 496.35 },
-  { id: "10", title: "Takahashi", date: new Date(), value: 965.4 },
-  { id: "11", title: "Sondas", date: new Date(), value: 1506.6 },
+  {
+    id: "1",
+    title: "Carrefour",
+    date: new Date().toString(),
+    value: 202.5,
+    items: [],
+  },
+  {
+    id: "2",
+    title: "Extra",
+    date: new Date().toString(),
+    value: 602.75,
+    items: [],
+  },
+  {
+    id: "3",
+    title: "Carrefour",
+    date: new Date().toString(),
+    value: 210.25,
+    items: [],
+  },
+  {
+    id: "4",
+    title: "Assaí",
+    date: new Date().toString(),
+    value: 2020.2,
+    items: [],
+  },
+  {
+    id: "5",
+    title: "Atacadão",
+    date: new Date().toString(),
+    value: 1982.3,
+    items: [],
+  },
+  {
+    id: "6",
+    title: "Extra",
+    date: new Date().toString(),
+    value: 360.15,
+    items: [],
+  },
+  {
+    id: "7",
+    title: "Shibata",
+    date: new Date().toString(),
+    value: 85.9,
+    items: [],
+  },
+  {
+    id: "8",
+    title: "Tenda",
+    date: new Date().toString(),
+    value: 125.7,
+    items: [],
+  },
+  {
+    id: "9",
+    title: "Rede Krill",
+    date: new Date().toString(),
+    value: 496.35,
+    items: [],
+  },
+  {
+    id: "10",
+    title: "Takahashi",
+    date: new Date().toString(),
+    value: 965.4,
+    items: [],
+  },
+  {
+    id: "11",
+    title: "Sondas",
+    date: new Date().toString(),
+    value: 1506.6,
+    items: [],
+  },
 ];

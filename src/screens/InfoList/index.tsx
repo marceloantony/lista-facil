@@ -17,6 +17,7 @@ export function InfoList() {
       <PageHeaderList
         title="Lista de Compras"
         placeholder="Nome do mercado aqui..."
+        type="input"
       />
       <ListCategory items={itemsExemple} />
       <PageFooterList items={itemsExemple} onPress={navigation.goBack} />

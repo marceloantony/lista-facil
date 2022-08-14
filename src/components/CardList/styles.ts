@@ -28,7 +28,7 @@ export const Title = styled.Text`
   color: ${({ theme }) => theme.COLORS.PRIMARY_TEXT_COLOR};
 `;
 
-export const Date = styled.Text`
+export const LabelDate = styled.Text`
   font-family: ${({ theme }) => theme.FONTS.REGULAR};
   font-size: ${RFValue(11)}px;
   color: ${({ theme }) => theme.COLORS.SECONDARY_TEXT_COLOR};

@@ -32,9 +32,7 @@ export function ListCategory({ items }: Props) {
     const itemsByCategory = items.filter(
       (item) => item.category === category.id
     );
-
-    // console.log(refItems.length);
-
+    
     if (itemsByCategory.length === 0) {
       return <></>;
     }
