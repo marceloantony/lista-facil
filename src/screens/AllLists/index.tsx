@@ -3,7 +3,7 @@ import React from "react";
 import { CardList, PageHeaderList } from "../../components";
 import { Container, List } from "./styles";
 import { ListDataProps } from "../../@types/data-props";
-import { listsExemple } from "../../data/categories";
+import { listsExemple } from "../../data/";
 
 export function AllLists(data: ListDataProps) {
   return (

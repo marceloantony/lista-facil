@@ -13,7 +13,7 @@ import {
 } from "./styles";
 
 import { CategoryDataProps, ItemDataProps } from "../../@types/data-props";
-import { categories } from "../../data/categories";
+import { categories } from "../../data/";
 
 import IconAC from "react-native-vector-icons/AntDesign";
 import IconMCI from "react-native-vector-icons/MaterialCommunityIcons";

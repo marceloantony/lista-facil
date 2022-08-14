@@ -8,7 +8,7 @@ import {
   Label,
   Text,
 } from "./styles";
-import { categories } from "../../data/categories";
+import { categories } from "../../data/";
 import { useTheme } from "styled-components/native";
 import { shadowThemeDark, shadowThemeLight } from "../../themes/shadow";
 import { useState } from "react";

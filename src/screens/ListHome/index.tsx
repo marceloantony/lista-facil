@@ -1,6 +1,6 @@
 import React from "react";
 import { ListCategory, PageHeaderList } from "../../components";
-import { itemsExemple } from "../../data/categories";
+import { itemsExemple } from "../../data/";
 import { Container } from "./styles";
 
 export function ListHome() {

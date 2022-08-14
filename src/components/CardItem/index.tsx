@@ -16,7 +16,7 @@ import {
 } from "./styles";
 import { ItemDataProps } from "../../@types/data-props";
 
-import { categories } from "../../data/categories";
+import { categories } from "../../data/";
 import { shadowThemeDark, shadowThemeLight } from "../../themes/shadow";
 
 type Props = {

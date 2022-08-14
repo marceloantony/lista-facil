@@ -12,7 +12,7 @@ import {
   Title,
 } from "./styles";
 
-import { listsExemple } from "../../data/categories";
+import { listsExemple } from "../../data/";
 import { GroupButtonsMenu } from "../GroupButtonsMenu";
 
 export function ListsRecent() {

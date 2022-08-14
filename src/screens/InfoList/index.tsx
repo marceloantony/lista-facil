@@ -6,7 +6,7 @@ import {
   PageFooterList,
   PageHeaderList,
 } from "../../components";
-import { itemsExemple } from "../../data/categories";
+import { itemsExemple } from "../../data/";
 import { Conteiner } from "./styles";
 
 export function InfoList() {
