@@ -2,6 +2,7 @@ import styled, { css } from "styled-components/native";
 import { RFPercentage, RFValue } from "react-native-responsive-fontsize";
 import Icon from "react-native-vector-icons/Feather";
 import { LinearGradient } from "expo-linear-gradient";
+import MaskInput, { createNumberMask, Masks } from "react-native-mask-input";
 
 export const Container = styled.View`
   flex: 1;
@@ -32,6 +33,25 @@ export const Input = styled.TextInput`
 export const ProductValueField = styled.View`
   flex-direction: row;
   align-items: center;
+`;
+
+const dollarMask = createNumberMask({
+  prefix: [],
+  delimiter: '.',
+  separator: ',',
+  precision: 2,
+})
+export const ProductValueInput = styled(MaskInput).attrs({
+  mask: dollarMask,
+})`
+  border-radius: 8px;
+  font-size: ${RFValue(16)}px;
+  font-family: ${({ theme }) => theme.FONTS.MEDIUM};
+  color: ${({ theme }) => theme.COLORS.PRIMARY_TEXT_COLOR};
+  text-align: center;
+  background-color: ${({ theme }) => theme.COLORS.FOREGROUND_COLOR};
+  padding: 8px;
+  width: 50%;
 `;
 
 export const MonetaryValue = styled.Text`

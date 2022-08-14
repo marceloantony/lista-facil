@@ -1,6 +1,6 @@
 import { useNavigation } from "@react-navigation/native";
 import React, { useState } from "react";
-import { Alert } from "react-native";
+import { Alert, StyleProp, ViewStyle } from "react-native";
 import { useTheme } from "styled-components";
 import { CategoryDataProps } from "../../@types/data-props";
 import { ChooseCategory, PageHeaderList } from "../../components";
@@ -21,6 +21,7 @@ import {
   BtnBgConfirm,
   BtnBgCancel,
   BtnText,
+  ProductValueInput,
 } from "./styles";
 
 const catVoid: CategoryDataProps = {
@@ -33,11 +34,11 @@ const catVoid: CategoryDataProps = {
 
 export function AddItem() {
   const navigation = useNavigation();
-  const shadow =
+  const shadow: StyleProp<ViewStyle> =
     useTheme().CURRENT_THEME === "light" ? shadowThemeLight : shadowThemeDark;
 
   const [productName, setProductName] = useState("");
-  const [productValue, setProductValue] = useState("");
+  const [productValue, setProductValue] = useState(0);
   const [quantity, setQuantity] = useState("001");
   const [category, setCategory] = useState<CategoryDataProps>();
   const [details, setDetails] = useState("");
@@ -45,10 +46,8 @@ export function AddItem() {
   const handleQuantity = (type: "more" | "less") => {
     let qtd = parseInt(quantity);
 
-    if (qtd > 0) {
-      if (type === "more") qtd++;
-      else qtd--;
-    }
+    if (type === "more") qtd++;
+    else if (qtd > 0) qtd--;
 
     let numberWithZeroes = String(qtd);
     let counter = numberWithZeroes.length;
@@ -60,18 +59,35 @@ export function AddItem() {
     setQuantity(numberWithZeroes);
   };
 
-  const showInfoItem = () => {
-    const propsValue = {
-      minimumFractionDigits: 2,
-      maximumFractionDigits: 2,
-    };
-    const body = `Seu item foi adicionado a lista com sucesso!
-    • Nome: ${productName};
-    • Valor: R$ ${parseFloat(productValue).toLocaleString("pt-BR", propsValue)};
-    • Quantidade: ${quantity};
-    • Detalhes: ${details};
-    `;
-    Alert.alert("Informações do Item", body, [{ onPress: navigation.goBack }]);
+  const submitItem = () => {
+    if (
+      productName === "" ||
+      productValue === 0 ||
+      parseInt(quantity) === 0 ||
+      !category
+    ) {
+      let body = "Os seguintes items precisam ser preenchidos:\n\n";
+      body += productName === "" ? "\t• Nome do Produto;\n" : "";
+      body += productValue === 0 ? "\t• Valor do Produto;\n" : "";
+      body += parseInt(quantity) === 0 ? "\t• Quantidade;\n" : "";
+      body += !category ? "\t• Categoria;\n" : "";
+      Alert.alert("Campos pendentes!", body);
+    } else {
+      const prodValue = productValue.toLocaleString("pt-BR", {
+        minimumFractionDigits: 2,
+        maximumFractionDigits: 2,
+      });
+      const body = `Seu item foi adicionado a lista com sucesso!
+      • Nome: ${productName};
+      • Valor: R$ ${prodValue};
+      • Quantidade: ${quantity};
+      • Categoria: ${category?.name};
+      • Detalhes: ${details === "" ? "Nenhuma" : details};
+      `;
+      Alert.alert("Informações do Item", body, [
+        { onPress: navigation.goBack },
+      ]);
+    }
   };
 
   return (
@@ -94,10 +110,13 @@ export function AddItem() {
           <Label>Valor do Produto</Label>
           <ProductValueField>
             <MonetaryValue>R$</MonetaryValue>
-            <Input
-              placeholder="Digite o Valor do Produto ."
-              value={productValue}
-              onChangeText={setProductValue}
+            <ProductValueInput
+              placeholder="0,00"
+              keyboardType="numeric"
+              value={productValue > 0 ? productValue.toString() : ""}
+              onChangeText={(masked, unmasked) =>
+                setProductValue(parseFloat(unmasked) / 100)
+              }
               style={shadow}
             />
           </ProductValueField>
@@ -152,7 +171,7 @@ export function AddItem() {
             <BtnText>Cancelar</BtnText>
           </BtnBgCancel>
         </BtnFooter>
-        <BtnFooter side="right" onPress={showInfoItem}>
+        <BtnFooter side="right" onPress={submitItem}>
           <BtnBgConfirm>
             <BtnText>Adicionar</BtnText>
           </BtnBgConfirm>
