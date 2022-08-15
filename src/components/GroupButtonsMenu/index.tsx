@@ -18,7 +18,7 @@ export function GroupButtonsMenu() {
       id,
       title: "<Sem Nome>",
       date: new Date().toString(),
-      value: 0,
+      total: 0,
       items: [],
     };
 

@@ -18,15 +18,21 @@ import { ItemDataProps } from "../../@types/data-props";
 
 import { categories } from "../../data/";
 import { shadowThemeDark, shadowThemeLight } from "../../themes/shadow";
+import { formatStringQuantity } from "../../hooks";
 
 type Props = {
   data: ItemDataProps;
   setRef: any;
-  closeRow: any;
+  closeRow: (id: string, del?: boolean) => void;
 };
 
 export function CardItem({ data, setRef, closeRow }: Props) {
   const category = categories.filter((c) => c.id === data.category)[0];
+  const total = data.value ? data.value * data.qtd : 0;
+  const localeStringArgs = {
+    minimumFractionDigits: 2,
+    maximumFractionDigits: 2,
+  };
 
   const renderSideIcon = (iconName: string, side: "left" | "right") => {
     return (
@@ -36,10 +42,14 @@ export function CardItem({ data, setRef, closeRow }: Props) {
     );
   };
 
-  const openModal = (id: string) => {
-    Alert.alert("", "Aqui serão exibido as informações do item!", [
-      { onPress: () => closeRow(id) },
-    ]);
+  const openModal = (id: string, item: ItemDataProps) => {
+    const body = `
+      • Nome: ${item.name}\n
+      • Valor Unitário: R$ ${item.value?.toLocaleString("pt-BR", localeStringArgs)}\n
+      • Quantidade: ${formatStringQuantity(item.qtd)}\n
+      • Observações: ${item.obs === "" ? "Nenhuma" : item.obs}
+      `;
+    Alert.alert("Informações do item", body, [{ onPress: () => closeRow(id) }]);
   };
 
   const removeItem = (id: string) => {
@@ -48,7 +58,7 @@ export function CardItem({ data, setRef, closeRow }: Props) {
       "Tem certeza que desdeja remover esse item da lista?",
       [
         { text: "Não", onPress: () => closeRow(id), style: "cancel" },
-        { text: "Sim", onPress: () => closeRow(id) },
+        { text: "Sim", onPress: () => closeRow(id, true) },
       ]
     );
   };
@@ -62,7 +72,7 @@ export function CardItem({ data, setRef, closeRow }: Props) {
         renderRightActions={() =>
           renderSideIcon("delete-forever-outline", "right")
         }
-        onSwipeableLeftOpen={() => openModal(data.id)}
+        onSwipeableLeftOpen={() => openModal(data.id, data)}
         onSwipeableRightOpen={() => removeItem(data.id)}
       >
         <Conteiner
@@ -75,17 +85,13 @@ export function CardItem({ data, setRef, closeRow }: Props) {
           <LeftBorder color={category.color} />
 
           <TitleBox>
-            <Title>{data.title}</Title>
-            <Quantity>Quantidade: {data.qtd}</Quantity>
+            <Title>{data.name}</Title>
+            <Quantity>Quantidade: {formatStringQuantity(data.qtd)}</Quantity>
           </TitleBox>
 
           {data.value && (
             <Value>
-              R${" "}
-              {data.value.toLocaleString("pt-BR", {
-                minimumFractionDigits: 2,
-                maximumFractionDigits: 2,
-              })}
+              R$ {total.toLocaleString("pt-BR", localeStringArgs)}
             </Value>
           )}
         </Conteiner>

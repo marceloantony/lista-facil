@@ -5,24 +5,29 @@ import { Btn, BtnBg, BtnIcon, BtnText, Container, Value } from "./styles";
 
 type ValueListProps = {
   items: ItemDataProps[];
-  onPress: any;
+  getTotal: (total: number) => void;
 };
 
-export function PageFooterList({ items, onPress }: ValueListProps) {
+export function PageFooterList({ items, getTotal }: ValueListProps) {
   const calcTotal = () => {
     let total = 0;
     items.map((item) => {
       if (item.value) total += item.value * item.qtd;
     });
-    return total.toLocaleString("pt-BR", {
-      minimumFractionDigits: 2,
-      maximumFractionDigits: 2,
-    });
+    return total;
   };
+
+  const totalValue = calcTotal();
+  getTotal(totalValue);
+  const totalValueFormated = totalValue.toLocaleString("pt-BR", {
+    minimumFractionDigits: 2,
+    maximumFractionDigits: 2,
+  });
+
   return (
     <Container>
       <Value>Valor Total:</Value>
-      <Value>R$ {calcTotal()}</Value>
+      <Value>R$ {totalValueFormated}</Value>
     </Container>
   );
 }

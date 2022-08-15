@@ -1,7 +1,6 @@
 import {
   CategoryDataProps,
   ItemDataProps,
-  ListDataProps,
 } from "../@types/data-props";
 import light from "../themes/light";
 
@@ -230,118 +229,38 @@ export const itemsExemple: ItemDataProps[] = [
   // },
   {
     id: "11",
-    title: "Sabão em Pó",
+    name: "Sabão em Pó",
     qtd: 3,
     value: 8.4,
     category: "11",
   },
   {
     id: "12",
-    title: "Arroz",
+    name: "Arroz",
     qtd: 3,
     value: 6.95,
     category: "12",
   },
   {
     id: "13",
-    title: "Tábua de Carne",
+    name: "Tábua de Carne",
     qtd: 1,
     value: 17.75,
     category: "13",
   },
   {
     id: "14",
-    title: "Pão Francês",
+    name: "Pão Francês",
     qtd: 8,
     value: 0.6,
     category: "14",
   },
   {
     id: "15",
-    title: "Sachê Ração",
+    name: "Sachê Ração",
     qtd: 5,
     value: 2.47,
     category: "15",
   },
-  { id: "16", title: "Vinho", qtd: 1, value: 20, category: "2" },
-];
-
-export const listsExemple: ListDataProps[] = [
-  {
-    id: "1",
-    title: "Carrefour",
-    date: new Date().toString(),
-    value: 202.5,
-    items: [],
-  },
-  {
-    id: "2",
-    title: "Extra",
-    date: new Date().toString(),
-    value: 602.75,
-    items: [],
-  },
-  {
-    id: "3",
-    title: "Carrefour",
-    date: new Date().toString(),
-    value: 210.25,
-    items: [],
-  },
-  {
-    id: "4",
-    title: "Assaí",
-    date: new Date().toString(),
-    value: 2020.2,
-    items: [],
-  },
-  {
-    id: "5",
-    title: "Atacadão",
-    date: new Date().toString(),
-    value: 1982.3,
-    items: [],
-  },
-  {
-    id: "6",
-    title: "Extra",
-    date: new Date().toString(),
-    value: 360.15,
-    items: [],
-  },
-  {
-    id: "7",
-    title: "Shibata",
-    date: new Date().toString(),
-    value: 85.9,
-    items: [],
-  },
-  {
-    id: "8",
-    title: "Tenda",
-    date: new Date().toString(),
-    value: 125.7,
-    items: [],
-  },
-  {
-    id: "9",
-    title: "Rede Krill",
-    date: new Date().toString(),
-    value: 496.35,
-    items: [],
-  },
-  {
-    id: "10",
-    title: "Takahashi",
-    date: new Date().toString(),
-    value: 965.4,
-    items: [],
-  },
-  {
-    id: "11",
-    title: "Sondas",
-    date: new Date().toString(),
-    value: 1506.6,
-    items: [],
-  },
+  { id: "16", name: "Vinho", qtd: 1, value: 20, category: "2" },
 ];

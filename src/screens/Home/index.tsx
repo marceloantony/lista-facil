@@ -8,17 +8,18 @@ import { keyAllLists } from "../../data/";
 import { useFocusEffect } from "@react-navigation/native";
 
 export function Home() {
-  const { getItem } = useAsyncStorage(keyAllLists);
+  const { getItem, removeItem } = useAsyncStorage(keyAllLists);
 
   const [data, setData] = useState<ListDataProps[]>([]);
 
   const fetchLists = async () => {
-    const response = await getItem();
+    const response = await getItem();    
     setData(response ? JSON.parse(response) : []);
   }
 
   useFocusEffect(
     useCallback(() => {
+      // removeItem();
       fetchLists();
     }, [])
   );

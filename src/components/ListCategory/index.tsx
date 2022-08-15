@@ -25,10 +25,21 @@ import { ListEmpty } from "../ListEmpty";
 
 type Props = {
   items: ItemDataProps[];
+  deleteItem: (id: string) => void;
 };
 
-export function ListCategory({ items }: Props) {
+export function ListCategory({ items, deleteItem }: Props) {
   const [refItems, setRefItems] = useState<Swipeable[]>([]);
+
+  const closeRow = (id: string, del: boolean = false) => {
+    refItems.map((ref) => {
+      if (ref.props.id === id) {
+        ref.close();
+      }
+    });
+    if (del) deleteItem(id);
+  };
+
   const renderItems = (category: CategoryDataProps) => {
     const itemsByCategory = items.filter(
       (item) => item.category === category.id
@@ -91,13 +102,7 @@ export function ListCategory({ items }: Props) {
                 }
                 setRefItems(refItems);
               }}
-              closeRow={(id: string) => {
-                refItems.map((ref) => {
-                  if (ref.props.id === id) {
-                    ref.close();
-                  }
-                });
-              }}
+              closeRow={closeRow}
             />
           )}
           scrollEnabled={false}

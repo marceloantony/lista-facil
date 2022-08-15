@@ -36,7 +36,7 @@ export function CardList({ data }: CardListProps) {
       <TitleBox>
         <IconBox>
           <IconCard
-            name={data.value >= 500 ? "shopping-cart" : "shopping-bag"}
+            name={data.total >= 500 ? "shopping-cart" : "shopping-bag"}
           />
         </IconBox>
         <View>
@@ -46,7 +46,7 @@ export function CardList({ data }: CardListProps) {
       </TitleBox>
       <Value>
         R${" "}
-        {data.value.toLocaleString("pt-BR", {
+        {data.total.toLocaleString("pt-BR", {
           minimumFractionDigits: 2,
           maximumFractionDigits: 2,
         })}

@@ -2,13 +2,13 @@ export type ListDataProps = {
   id: string;
   title: string;
   date: string;
-  value: number;
+  total: number;
   items: ItemDataProps[];
 };
 
 export type ItemDataProps = {
   id: string;
-  title: string;
+  name: string;
   qtd: number;
   value?: number;
   category: string;

@@ -25,33 +25,51 @@ export function InfoList() {
   const { getItem, setItem } = useAsyncStorage(keyAllLists);
 
   const { idList } = useRoute().params as InfoListPageProps;
-  const [items, setItems] = useState<ItemDataProps[]>([]);
-  const [lists, setLists] = useState<ListDataProps[]>([]);
-  const [index, setIndex] = useState(0);
+  const [allItems, setAllItems] = useState<ItemDataProps[]>([]);
+  const [indexItem, setIndexItem] = useState(0);
+  const [allLists, setAllLists] = useState<ListDataProps[]>([]);
+  const [indexList, setIndexList] = useState(0);
   const [title, setTitle] = useState("");
 
   const fetchInfoList = async () => {
     const response = await getItem();
     const data: ListDataProps[] = response ? JSON.parse(response) : [];
-
     const list = data.filter((d, cont) => {
       if (d.id === idList) {
-        setIndex(cont);
+        setIndexList(cont);
         return true;
       }
     })[0];
 
-    setLists(data);
+    setAllLists(data);
     setTitle(list.title === "<Sem Nome>" ? "" : list.title);
-    setItems(list.items);
+    setAllItems(list.items);
   };
 
   const saveTitleList = async () => {
-    lists[index] = {
-      ...lists[index],
+    allLists[indexList] = {
+      ...allLists[indexList],
       title: title === "" ? "<Sem Nome>" : title,
     };
-    await setItem(JSON.stringify(lists));
+    await setItem(JSON.stringify(allLists));
+  };
+
+  const updateTotal = async (total: number) => {
+    allLists[indexList] = {
+      ...allLists[indexList],
+      total: total,
+    };
+    await setItem(JSON.stringify(allLists));
+  };
+
+  const deleteItem = async (id: string) => {
+    const newItems = allLists[indexList].items.filter((item) => item.id !== id);
+    allLists[indexList] = {
+      ...allLists[indexList],
+      items: newItems,
+    };
+    setAllItems(newItems);
+    await setItem(JSON.stringify(allLists));
   };
 
   useFocusEffect(
@@ -69,8 +87,13 @@ export function InfoList() {
         handleText={setTitle}
         onEndEditing={saveTitleList}
       />
-      <ListCategory items={items} />
-      <PageFooterList items={items} onPress={navigation.goBack} />
+      <ListCategory items={allItems} deleteItem={(id) => deleteItem(id)} />
+      <PageFooterList
+        items={allItems}
+        getTotal={(total: number) =>
+          allLists.length > 0 ? updateTotal(total) : undefined
+        }
+      />
       <ButtonAddItem
         onPress={() => navigation.navigate("AddItem", { idList })}
       />
