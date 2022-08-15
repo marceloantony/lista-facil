@@ -52,5 +52,5 @@ export const Container = styled(LinearGradient).attrs(({ theme }) => ({
 export const Value = styled.Text`
   color: ${({ theme }) => theme.COLORS.FOREGROUND_COLOR};
   font-family: ${({ theme }) => theme.FONTS.MEDIUM};
-  font-size: ${RFValue(26)}px;
+  font-size: ${RFValue(24)}px;
 `;

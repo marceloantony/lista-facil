@@ -21,12 +21,7 @@ export function PageFooterList({ items, onPress }: ValueListProps) {
   };
   return (
     <Container>
-      <Btn onPress={onPress}>
-        <BtnBg>
-          <BtnIcon />
-          <BtnText>Finalizar</BtnText>
-        </BtnBg>
-      </Btn>
+      <Value>Valor Total:</Value>
       <Value>R$ {calcTotal()}</Value>
     </Container>
   );

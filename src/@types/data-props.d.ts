@@ -32,4 +32,5 @@ export type ValidationProps = {
 
 export type InfoListPageProps = {
   idList: string;
+  idItem?: string;
 };

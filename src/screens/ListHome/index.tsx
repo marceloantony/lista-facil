@@ -7,7 +7,7 @@ export function ListHome() {
   return (
     <Container>
       <PageHeaderList
-        title="Itens em Casa"
+        titlePage="Itens em Casa"
         placeholder="Pesquise um item aqui..."
       />
       <ListCategory items={itemsExemple} />

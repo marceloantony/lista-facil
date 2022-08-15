@@ -16,7 +16,7 @@ export function GroupButtonsMenu() {
     const id = uuid.v4().toString();
     const newList: ListDataProps = {
       id,
-      title: "",
+      title: "<Sem Nome>",
       date: new Date().toString(),
       value: 0,
       items: [],
@@ -43,7 +43,7 @@ export function GroupButtonsMenu() {
         onPress={() => navigation.navigate("ListHome")}
       />
       <ButtonMenu title="Criar Lista" icon="plus" onPress={createList} />
-      <ButtonMenu title="Em Breve" icon="question" onPress={openScreen} />
+      <ButtonMenu title="Config." icon="gear" onPress={openScreen} />
       {/* <ButtonMenu title="Tema Claro" icon="sun" /> */}
       {/* <ButtonMenu title="Tema Escuro" icon="moon" /> */}
     </Container>

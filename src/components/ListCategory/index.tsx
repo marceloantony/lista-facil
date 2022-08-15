@@ -21,6 +21,7 @@ import IconMI from "react-native-vector-icons/MaterialIcons";
 import IconFA from "react-native-vector-icons/FontAwesome";
 import IconFA5 from "react-native-vector-icons/FontAwesome5";
 import { Swipeable } from "react-native-gesture-handler";
+import { ListEmpty } from "../ListEmpty";
 
 type Props = {
   items: ItemDataProps[];
@@ -32,7 +33,7 @@ export function ListCategory({ items }: Props) {
     const itemsByCategory = items.filter(
       (item) => item.category === category.id
     );
-    
+
     if (itemsByCategory.length === 0) {
       return <></>;
     }
@@ -107,12 +108,16 @@ export function ListCategory({ items }: Props) {
 
   return (
     <Container>
-      <ListCategories
-        data={categories}
-        keyExtractor={(item) => item.id}
-        renderItem={({ item }) => renderItems(item)}
-        ListFooterComponent={<FooterEmpty />}
-      />
+      {items.length > 0 ? (
+        <ListCategories
+          data={categories}
+          keyExtractor={(item) => item.id}
+          renderItem={({ item }) => renderItems(item)}
+          ListFooterComponent={<FooterEmpty />}
+        />
+      ) : (
+        <ListEmpty text="Nenhum item foi adicionado a lista." />
+      )}
       <FooterEmpty />
     </Container>
   );

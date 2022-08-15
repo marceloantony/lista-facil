@@ -1,10 +1,10 @@
-import React, { useState } from "react";
+import React, { useCallback, useState } from "react";
 import { Alert, StyleProp, ViewStyle } from "react-native";
-import { useNavigation } from "@react-navigation/native";
+import { useFocusEffect, useNavigation, useRoute } from "@react-navigation/native";
 import { useTheme } from "styled-components";
 import uuid from "react-native-uuid";
 
-import { CategoryDataProps, ValidationProps } from "../../@types/data-props";
+import { CategoryDataProps, InfoListPageProps, ItemDataProps, ListDataProps, ValidationProps } from "../../@types/data-props";
 import { ChooseCategory, PageHeaderList } from "../../components";
 import { shadowThemeDark, shadowThemeLight } from "../../themes/shadow";
 import {
@@ -25,6 +25,8 @@ import {
   BtnText,
   ProductValueInput,
 } from "./styles";
+import { useAsyncStorage } from "@react-native-async-storage/async-storage";
+import { keyAllLists } from "../../data";
 
 const validationVoid: ValidationProps = {
   name: false,
@@ -35,15 +37,26 @@ const validationVoid: ValidationProps = {
 
 export function AddItem() {
   const navigation = useNavigation();
+  const { getItem } = useAsyncStorage(keyAllLists);
   const shadow: StyleProp<ViewStyle> =
     useTheme().CURRENT_THEME === "light" ? shadowThemeLight : shadowThemeDark;
-
+    
+    const { idList } = useRoute().params as InfoListPageProps;
+  const [items, setItems] = useState<ItemDataProps[]>([]);
+  
   const [productName, setProductName] = useState("");
   const [productValue, setProductValue] = useState("");
   const [quantity, setQuantity] = useState("001");
   const [category, setCategory] = useState<CategoryDataProps>();
   const [details, setDetails] = useState("");
   const [validation, setValidation] = useState(validationVoid);
+
+  const fetchItems = async () => {
+    const response = await getItem();
+    const data: ListDataProps[] = response ? JSON.parse(response) : [];
+    const thisList = data.filter((list) => list.id === idList)[0];
+    setItems(thisList.items);
+  };
 
   const handleQuantity = (type: "more" | "less") => {
     let qtd = parseInt(quantity);
@@ -97,9 +110,15 @@ export function AddItem() {
     }
   };
 
+  useFocusEffect(
+    useCallback(() => {
+      fetchItems();
+    }, [])
+  );
+
   return (
     <Container>
-      <PageHeaderList title="Adicionar Produto" />
+      <PageHeaderList titlePage="Adicionar Produto" />
       <Form>
         {/* NOME DO PRODUTO */}
         <Field>

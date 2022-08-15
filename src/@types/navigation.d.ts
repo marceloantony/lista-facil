@@ -6,7 +6,7 @@ export declare global {
       Home: undefined;
       AllLists: undefined;
       InfoList: InfoListPageProps;
-      AddItem: undefined;
+      AddItem: InfoListPageProps;
       ListHome: undefined;
       screenB: { name: string };
     }

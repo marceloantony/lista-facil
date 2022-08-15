@@ -26,17 +26,18 @@ export const LinkContent = styled.View`
   flex-direction: row;
   align-items: center;
   margin-top: 3px;
+  border-radius: 5px;
 `;
 
 export const LinkText = styled.Text`
   font-family: ${({ theme }) => theme.FONTS.REGULAR};
   font-size: ${RFValue(13)}px;
-  color: ${({ theme }) => theme.COLORS.PRIMARY_TEXT_COLOR};
+  color: ${({ theme }) => theme.COLORS.PRIMARY_DARK};
   margin-right: ${RFPercentage(0.5)}px;
   margin-top: -3px;
 `;
 
 export const LinkIcon = styled(Icon).attrs(({ theme }) => ({
   size: RFPercentage(2),
-  color: theme.COLORS.PRIMARY_TEXT_COLOR,
+  color: theme.COLORS.PRIMARY_DARK,
 }))``;
