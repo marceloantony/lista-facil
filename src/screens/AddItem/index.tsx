@@ -124,11 +124,6 @@ export function AddItem() {
       body += !category ? "\t• Categoria;\n" : "";
       Alert.alert("Campos pendentes!", body);
     } else {
-      const prodValue = value.toLocaleString("pt-BR", {
-        minimumFractionDigits: 2,
-        maximumFractionDigits: 2,
-      });
-
       createItem({
         id: uuid.v4().toString(),
         category: category?.id ?? "",
